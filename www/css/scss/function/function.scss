@@ -1,0 +1,394 @@
+@mixin font-size{
+
+	/* Exemplo <p class="font24"></p> */
+	$i: 8;
+	$valor: 8px;
+
+	@while $i <= 50 {
+
+		.font#{$i}{ 
+			font-size: $valor !important; 
+		}
+
+		$valor: $valor + 1;
+		$i: $i + 1;
+
+	}
+}
+
+@mixin font-weight{
+
+	/* Exemplo <p class="font400"></p> */
+
+	$i: 200;
+	$valor: 200;
+
+	@while $i <= 800 {
+
+		.font#{$i}{ 
+		font-weight: $valor !important; 
+		 }
+
+		$valor: $valor + 100;
+		$i: $i + 100;
+
+	}
+}
+
+
+@mixin max{
+
+	/* Exemplo <div class="maxwidth320"></div> */
+
+	$i: 300;
+	$valor: 300px;
+
+	@while $i <= 1200 {
+
+		.max#{$i} { 
+			max-width: $valor !important;
+		}
+
+		$valor: $valor + 20px;
+		$i: $i + 20;
+
+	}
+}
+
+@mixin width{
+
+	/* Exemplo <div class="width10"></div> */
+
+	$i: 1;
+	$valor: 1%;
+
+	@while $i <= 100 {
+
+		.width-#{$i}{ 
+			width: $valor; 
+		}
+
+		$valor: $valor + 1%;
+		$i: $i + 1;
+
+	}
+
+	.width-12-5{
+		width: 12.5%;
+	}
+
+	.width-66-6{
+		width: 66.66%;
+	}
+
+	.width-16-6{
+		width: 16.66%;
+	}
+
+	.width-33{
+		width: 33%;
+	}
+
+	.width-33-3{
+		width: 33.33%;
+	}
+}
+	
+@mixin site-space{
+
+	/* Exemplo <div class="site-space-20"></div> */
+
+	$i: 10;
+	$valor: 10px;
+
+	@while $i <= 100 {
+
+		.site-space-#{$i}{
+			display: table;
+			width: 100%;
+			height: $valor;
+		}
+
+		$valor: $valor + 10px;
+		$i: $i + 10;
+	}
+
+	.site-space{
+		display: table;
+		width: 100%;
+		height: 10px;
+	}
+}
+
+@mixin float{
+
+	/* Exemplo <div class="float-right"></div> */
+
+	.float-right{
+		float: right;
+	}
+
+	.float-left{
+		float: left;
+	}
+}
+
+@mixin pd-left{
+
+	/* Exemplo <div class="padding-left-30"></div> */
+
+	$i: 5;
+	$valor: 5px;
+
+	@while $i <= 60 {
+
+		.pd-left-#{$i}{ 
+			padding-left: $valor !important; 
+		}
+
+		$valor: $valor + 5px;
+		$i: $i + 5;
+	}
+
+	.pd-left{
+		padding-left: 5px; 
+	}
+}
+
+@mixin pd-right{
+
+	/* Exemplo <div class="padding-right-15"></div> */
+
+	$i: 5;
+	$valor: 5px;
+
+	@while $i <= 60 {
+
+		.pd-right-#{$i}{ 
+			padding-right: $valor !important;
+		}
+
+
+		$valor: $valor + 5px;
+		$i: $i + 5;
+	}
+
+	.pd-right{
+		padding-right: 5px; 
+	}
+}
+
+@mixin pd-center{
+
+	/* Exemplo <div class="pd-center-15"></div> */
+
+	$i: 5;
+	$valor: 5px;
+
+	@while $i <= 60 {
+
+		.pd-center-#{$i}{ 
+			padding-left: $valor; 
+			padding-right: $valor; 
+		}
+
+		$valor: $valor + 5px;
+		$i: $i + 5;
+	}
+
+	.pd-center{
+		padding-left: 5px; 
+		padding-right: 5px; 
+	}
+}
+
+/* OTIMIZAÇÃO */
+@mixin rotating{
+	.rotating{
+		-webkit-animation: rotating 1s cubic-bezier(0.24, 0.49, 0.71, 0.54) infinite;
+		-moz-animation: rotating 1s cubic-bezier(0.24, 0.49, 0.71, 0.54) infinite;
+		-ms-animation: rotating 1s cubic-bezier(0.24, 0.49, 0.71, 0.54) infinite;
+		-o-animation: rotating 1s cubic-bezier(0.24, 0.49, 0.71, 0.54) infinite;
+		animation: rotating 1s cubic-bezier(0.24, 0.49, 0.71, 0.54) infinite;
+	}
+	@keyframes rotating{
+		from{
+			transform: rotate(0deg);
+			-o-transform: rotate(0deg);
+			-ms-transform: rotate(0deg);
+			-moz-transform: rotate(0deg);
+			-webkit-transform: rotate(0deg);
+		}
+		to{
+			transform: rotate(360deg);
+			-o-transform: rotate(360deg);
+			-ms-transform: rotate(360deg);
+			-moz-transform: rotate(360deg);
+			-webkit-transform: rotate(360deg);
+		}
+	}
+	@-webkit-keyframes rotating{
+		from{
+			transform: rotate(0deg);
+			-webkit-transform: rotate(0deg);
+		}
+		to{
+			transform: rotate(360deg);
+			-webkit-transform: rotate(360deg);
+		}
+	}
+}
+@mixin animation-direction($value){
+	-moz-animation-direction: #{$value};
+	-webkit-animation-direction: #{$value};
+	animation-direction: #{$value};
+}
+@mixin animation-iteration-count($value){
+	-moz-animation-iteration-count: #{$value};
+	-webkit-animation-iteration-count: #{$value};
+	animation-iteration-count: #{$value};
+}
+@mixin animation-name($value){
+	-moz-animation-name: #{$value};
+	-webkit-animation-name: #{$value};
+	animation-name: #{$value};
+}
+@mixin animation-duration($value){
+	-moz-animation-duration: #{$value};
+	-webkit-animation-duration: #{$value};
+	animation-duration: #{$value};
+}
+@mixin filter($name){
+	filter: #{$name};
+	-webkit-filter: #{$name};
+	-moz-filter: #{$name};
+	-o-filter: #{$name};
+	-ms-filter: #{$name};
+}
+@mixin animation($name){
+	-webkit-animation: #{$name};
+	-moz-animation: #{$name};
+	-o-animation: #{$name};
+	-ms-animation: #{$name};
+	animation: #{$name};
+}
+@mixin transition($name){
+	-webkit-transition: #{$name};
+	-moz-transition: #{$name};
+	-o-transition: #{$name};
+	-ms-transition: #{$name};
+	transition: #{$name};
+}
+@mixin border-radius($valor){
+	border-radius: #{$valor};
+	-moz-border-radius: #{$valor};
+	-ms-border-radius: #{$valor};
+	-webkit-border-radius: #{$valor};
+	-o-border-radius: #{$valor};
+}
+@mixin appearance($valor){
+	appearance: $valor;
+	-webkit-appearance: $valor;
+	-moz-appearance: $valor;
+	-o-appearance: $valor;
+	-ms-appearance: $valor;
+}
+@mixin user-select($valor){
+	user-select: $valor;
+	-webkit-user-select: $valor;
+	-moz-user-select: $valor;
+	-ms-user-select: $valor;
+	-o-user-select: $valor;
+}
+@mixin rotate($deg){
+	-webkit-transform: rotate($deg);
+	-moz-transform: rotate($deg);
+	-ms-transform: rotate($deg);
+	-o-transform: rotate($deg);
+	transform: rotate($deg);
+}
+@mixin scale($scale){
+	-webkit-transform: scale($scale);
+	-ms-transform: scale($scale);
+	transform: scale($scale);
+}
+@mixin opacity($valor){
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=$valor)";
+	filter: alpha(opacity=$valor);
+	opacity: $valor;
+}
+@mixin box-shadow($valor){
+	-webkit-box-shadow: #{$valor};
+	-moz-box-shadow: #{$valor};
+	box-shadow: #{$valor};
+}
+@mixin highlight-color-rgba($a, $b, $c, $d){
+	-webkit-tap-highlight-color: rgba($a, $b, $c, $d);
+	-ms-tap-highlight-color: rgba($a, $b, $c, $d);
+	-moz-tap-highlight-color: rgba($a, $b, $c, $d);
+	-o-tap-highlight-color: rgba($a, $b, $c, $d);
+}
+@mixin border-box{
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+}
+@mixin overflow-scrolling($valor){
+	overflow-scrolling: $valor;
+	-webkit-overflow-scrolling: $valor;
+	-moz-overflow-scrolling: $valor;
+	-o-overflow-scrolling: $valor;
+	-ms-overflow-scrolling: $valor;
+}
+@mixin font-smooth($valor){
+	-webkit-font-smoothing: $valor;
+	-moz-font-smoothing: $valor;
+	-o-font-smoothing: $valor;
+	-ms-font-smoothing: $valor;
+	font-smoothing: $valor;
+}
+@mixin hide-yellow-bg-input{
+	input:-webkit-autofill,
+	input:-webkit-autofill:focus,
+	input:-webkit-autofill:active,
+	select:-webkit-autofill,
+	select:-webkit-autofill:focus,
+	select:-webkit-autofill:active
+	textarea:-webkit-autofill,
+	textarea:-webkit-autofill:focus,
+	textarea:-webkit-autofill:active{
+		background-color: rgba(0,0,0,0) !important;
+		transition: background-color 5000s ease-in-out 0s;
+	}
+}
+@mixin detalhe($cor, $largura){
+	display: block;
+	content: "";
+	position: relative;
+	margin: 3px 0 20px 0;
+	left: 0;
+	background-color: $cor;
+	width: $largura;
+	height: 2px;
+}
+@mixin mobile-text-center{
+	.mobile-text-center{
+		text-align: center !important;
+	}
+	.mobile-text-left{
+		text-align: left !important;
+	}
+	.mobile-text-right{
+		text-align: center !important;
+	}
+}
+@mixin selection($cor, $valor) {
+	::-moz-selection {
+		background: lighten($cor, $valor);
+	}
+	::selection {
+		background: lighten($cor, $valor);
+	}
+}

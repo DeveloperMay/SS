@@ -1,0 +1,36 @@
+{
+	"name": "Nostracasa imobiliária - Marau/RS",
+	"short_name": "Nostracasa imobiliária - Marau/RS",
+	"lang": "pt-BR",
+	"start_url": "/mobile",
+	"display": "standalone",
+	"gcm_sender_id": "155902245009",
+	"icons": [{
+			"src": "http://192.168.1.155/icone.png",
+			"sizes": "64x64",
+			"type": "image/png"
+		}, {
+			"src": "http://192.168.1.155/icone.png",
+			"sizes": "64x64",
+			"type": "image/png"
+		}, {
+			"src": "http://192.168.1.155/icone.png",
+			"sizes": "128x128",
+			"density": 2,
+			"type": "image/png"
+		}],
+	"splash_screens": [{
+		"src": "http://192.168.1.155/icone.png",
+			"sizes": "320x240",
+			"type": "image/png"
+		}, {
+		"src": "http://192.168.1.155/icone.png",
+			"sizes": "1334x750",
+			"type": "image/png"
+		}, {
+		"src": "http://192.168.1.155/icone.png",
+			"sizes": "1920x1080",
+			"density": 3,
+			"type": "image/png"
+		}]
+}
