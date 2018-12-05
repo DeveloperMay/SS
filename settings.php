@@ -9,6 +9,31 @@
 }
 */
 
+
+
+$local = 'objetiva';
+define('BANCO_DADOS', 'pgsql');
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* LOCAL */
+$LOCAL = '/';
+if($local == 'casa'){
+	$LOCAL = '/SS/';
+}
+
+define('LOCAL', $local);
+
 /* DEBUG DESENVOLVIMENTO */
 /**
 TRUE = DESENVOLVIMENTO
@@ -19,7 +44,7 @@ define('DEV', true);
 /**
 ** CONFIGURAÇÕES DO MVC
 **/
-define('DIR', '../SS/');
+define('DIR', '..'.$LOCAL);
 
 define('SUBDOMINIO', 'SS');
 
@@ -51,8 +76,6 @@ define('LANGS', array(
 ** @param pgsql ou mysql
 ** @see demais dados em Model/Bancodados/Pssw
 **/
-
-define('BANCO_DADOS', 'mysql');
 
 define('ACTION', 'maydana_system');
 

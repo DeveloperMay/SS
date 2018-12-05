@@ -1,0 +1,121 @@
+#boss-warning{
+	position: fixed;
+	display: block;
+	z-index: 9999;
+	width: 100%;
+	max-width: 540px;
+	top: -1px;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: #ffffff;
+	border: 1px solid $gray1;
+	@include border-radius(0 0 17px 17px);
+	opacity: 0;
+	@include animation(all 0.25s ease-in-out);
+	@include transition(all 0.25s ease-in-out);
+}
+.boss-warning{
+	display: block;
+	color: #FFF;
+	margin: auto;
+	width: 100%;
+	max-width: 600px;
+	padding: 0 10px;
+	@include border-box;
+}
+.boss-warning p{
+	padding: 10px;
+	@include border-box;
+	color: $gray1;
+
+}
+.boss-warning-close{
+	position: absolute;
+	right: 5px;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 40px;
+	height: 40px;
+	line-height: 38px;
+	border-radius: 50%;
+	background-color: rgba(0,0,0,0);
+	color: $gray1;
+	border: none;
+	padding: 0 !important;
+	font-size: 18px;
+	@include border-box;
+}
+.boss-warning-close:hover{
+	background-color: $colorSecondary;
+	color: #ffffff;
+}
+.warning-green{
+	background-color: #8CC63F !important;
+}
+.warning-blue{
+	background-color: #41A1FF !important;
+}
+
+/*
+	TABLET LANDSCAPE 
+	max-width: 1023px
+	min-width: 768px
+*/
+@mixin warning--tablet-landscape(){
+
+	.boss-warning p{
+		
+		font-size: 17px;
+	}
+}
+
+/*
+	TABLET PORTRAIT 
+	max-width: 767px
+	min-width: 641px
+*/
+@mixin warning--tablet-portrait(){
+
+	.boss-warning p{
+		
+		font-size: 16px;
+	}
+}
+
+/*
+	SMARTPHONE LANDSCAPE
+	max-width: 640px
+	min-width: 482px
+*/
+@mixin warning--smart-landscape(){
+
+	.boss-warning p{
+		
+		font-size: 15px;
+	}
+}
+
+/*
+	SMARTPHONE PORTRAIT
+	max-width: 481px
+	min-width: 321px
+*/
+@mixin warning--smart-portrait(){
+
+	.boss-warning p{
+		
+		font-size: 14px;
+	}	
+}
+
+/*
+	OLD SMARTPHONE
+	max-width: 320px
+*/
+@mixin warning--smart-old(){
+
+	.boss-warning p{
+		
+		font-size: 14px;
+	}
+}

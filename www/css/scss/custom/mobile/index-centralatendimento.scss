@@ -1,0 +1,19 @@
+/* AREA CENTRAL INFORMAÇOES */
+.indx-box-central {
+
+	& .indx-central-acao {
+		display: inline-block;
+		width: 50%;
+		margin: auto;
+
+		.indx-central-img {
+			display: block;
+			width: 50px;
+
+			& img {
+				display: block;
+				width: 100%;
+			}
+		}
+	}
+}

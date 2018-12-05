@@ -1,0 +1,195 @@
+.boss-slct{
+	transform: translateX(0px);
+	transition: transform 0.15s ease;
+	outline: none;
+	cursor: pointer;
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+	background-color: $inputBackgroundColor;
+	margin: 2px 0px 2px 0px;
+	height: #{$inputHeight}px;
+	min-width: #{$inputHeight}px;
+	border: #{$inputBorder}px solid $inputBorderColor;
+	border-radius: #{$inputBorderRadius}px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+}
+.boss-slct select{
+	position: absolute;
+	z-index: 0;
+	visibility: hidden;
+	height: 1px;
+	width: 1px;
+	margin-top: 0px;
+	margin: 0px;
+}
+.boss-slct-label{
+	cursor: pointer;
+	display: block;
+	padding: 0px #{$inputPdLeft}px 0px #{$inputPdRight}px;
+	position: absolute;
+	width: 100%;
+	z-index: 0;
+	top: 0px;
+	left: 0px;
+	line-height: #{$inputHeight - ($inputBorder * 2)}px;
+	height: #{$inputHeight - ($inputBorder * 2)}px;
+	overflow: hidden;
+	color: $inputTextColor;
+	@include form-font();
+	font-size: $inputTextSize;
+	text-align: left;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+}
+.boss-slct-brd{
+	height: 38px;
+	border: 2px solid #AAAAAA;
+}
+.boss-slct-brd .boss-slct-label{
+	line-height: 34px;
+}
+.boss-slct-label img{
+	vertical-align: middle;
+	margin-right: 10px;
+	width: auto;
+	height: 18px;
+}
+.boss-slct-area{
+	display: block;
+	overflow-y: auto;
+	border-left: 1px solid #CCC;
+	border-right: 1px solid #CCC;
+	border-bottom: 1px solid #CCC;
+	height: 0px;
+	width: inherit;
+	position: absolute;
+	top: 35px;
+	left: -1px;
+	width: 100%;
+	max-height: 300px;
+	z-index: 2;
+	background-color: #FFF;
+	-webkit-animation: height, 0.15s ease-in-out;
+	-moz-animation: height, 0.15s ease-in-out;
+	-o-animation: height, 0.15s ease-in-out;
+	-ms-animation: height, 0.15s ease-in-out;
+	animation: height height, 0.15s alternate;
+	-webkit-transition: height, 0.15s ease-in-out;
+	-moz-transition: height, 0.15s ease-in-out;
+	-o-transition: height, 0.15s ease-in-out;
+	-ms-transition: height, 0.15s ease-in-out;
+	transition: height, 0.15s ease-in-out;
+}
+.boss-slct-area::-webkit-scrollbar{width: 10px; height: 10px;}
+.boss-slct-area::-webkit-scrollbar-track-piece{background-color: #FFF;}
+.boss-slct-area::-webkit-scrollbar-thumb:vertical{height: 5px; background-color: $inputBorderColor;}
+.boss-slct-area::-webkit-scrollbar-thumb:horizontal{width: 5px; background-color: $inputBorderColor;}
+.boss-slct ul{
+	width: 100%;
+	list-style: none;
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 0;
+	margin-right: 0;
+	padding: 0;
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+}
+.boss-slct ul li{
+	width: 100%;
+	border-top: 1px solid #EEE;
+	font-size: $inputTextSize;
+	@include form-font();
+	list-style: none;
+	cursor: pointer;
+	margin: 0;
+	padding-left: #{$inputPdLeft}px;
+	padding-right: #{$inputPdRight}px;
+	line-height: #{$inputHeight - ($inputBorder * 2)}px;
+	background-color: #FaFaFA;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+}
+.boss-slct ul li img{
+	vertical-align: middle;
+	margin-right: 10px;
+	width: auto;
+	height: 18px;
+	margin-top: -2px;
+}
+.boss-slct i{
+	font-size: 130% !important;
+}
+.boss-slct-label::before{
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	display: block;
+	content: "";
+	width: #{$inputHeight}px;
+	font-size: 130% !important;
+	z-index: 0;
+	text-align: center;
+	border-radius: 0 #{$inputBorderRadius}px #{$inputBorderRadius}px 0;
+	color: $labelColor;
+	background-color: $labelBackgroundColor;
+	line-height: #{$inputHeight - ($inputBorder * 2)}px;
+	height: #{$inputHeight - ($inputBorder * 2)}px;
+}
+.boss-slct-label::after{
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	display: block;
+	z-index: 0;
+	text-align: center;
+	width: #{$inputHeight}px;
+	line-height: #{$inputHeight - ($inputBorder * 2)}px;
+	height: #{$inputHeight - ($inputBorder * 2)}px;
+	content: "\e313";
+	font-size: 24px !important;
+	color: $inputTextColor;
+	font-family: 'icomoon' !important;
+	transform: rotate(0deg);
+	transform-origin: center;
+	transition: transform 0.15s ease;
+}
+
+.boss-slct-disabled{
+	cursor: default !important;
+	border-color: $gray4 !important;
+	color: $gray4 !important;
+}
+.boss-slct-disabled .boss-slct-label{
+	cursor: default !important;
+	color: $gray4 !important;
+}
+.boss-slct-disabled .boss-slct-label::before{
+	cursor: default !important;
+	background-color: $gray4 !important;
+}
+.boss-slct-disabled .boss-slct-label::after{
+	cursor: default !important;
+	color: #FFF !important;
+}

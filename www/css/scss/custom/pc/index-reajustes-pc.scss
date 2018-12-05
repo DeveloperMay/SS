@@ -1,0 +1,12 @@
+.indx-box-reajuste-pc {
+	display: block;
+	width: 100%;
+	margin: 0 -30px;
+
+	& .indx-box-reajuste-a {
+		display: inline-block;
+		width: 50%;
+		padding: 30px;
+		@include border-box;
+	}
+}

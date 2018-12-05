@@ -1,0 +1,39 @@
+.resultados-busca{
+	@extend .ho-txt;
+	display: block;
+	width: 100%;
+
+	& .resultados-box {
+		display: block;
+		width: 100%;
+		padding: 20px;
+		@include border-box;
+
+		&:hover {
+			background: $gray5;
+		}
+
+		& .resultados-box-a {
+			display: inline-block;
+			width: calc(100% - 105px);
+			vertical-align: middle;
+
+			& .indx-duvidas-img-box {
+				display: inline-block;
+				width: 80px;
+				vertical-align: top;
+
+				& img {
+					display: block;
+					width: 100%;
+				}
+			}
+		}
+
+		& .resultados-box-b {
+			display: inline-block;
+			width: 100px;
+			vertical-align: middle;
+		}
+	}
+}

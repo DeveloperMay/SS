@@ -1,0 +1,359 @@
+/* SELECT */
+.boss-select{
+	transform: translateX(0px);
+	transition: transform 0.15s ease;
+	@include form-font();
+	position: relative;
+	margin: 2px 0px 2px 0px;
+	cursor: pointer;
+	display: inline-block;
+	vertical-align: top;
+	height: #{$inputHeight}px;
+	min-width: #{$inputHeight}px;
+	background-color: $inputBackgroundColor;
+	border: #{$inputBorder}px solid $inputBorderColor;
+	border-radius: #{$inputBorderRadius}px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+}
+.boss-select select{
+	position: absolute;
+	font-size: $inputTextSize;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	cursor: pointer;
+	color: $inputTextColor;
+	margin: 0px;
+	padding: 0px #{$inputPdLeft}px 0px #{$inputPdRight}px;
+	height: #{$inputHeight - ($inputBorder * 2)}px;
+	width: 100%;
+	z-index: 2;
+	@include form-font();
+	background-color: rgba(0,0,0,0);
+	border-radius: 0 #{$inputBorderRadius}px #{$inputBorderRadius}px 0;
+	border: none;
+	outline: none;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+}
+.boss-select label{
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	display: block;
+	content: "";
+	width: #{$inputHeight}px;
+	z-index: 1;
+}
+.boss-select label::before{
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	display: block;
+	content: "";
+	width: #{$inputHeight}px;
+	z-index: 0;
+	text-align: center;
+	border-radius: 0 #{$inputBorderRadius}px #{$inputBorderRadius}px 0;
+	background-color: $labelBackgroundColor;
+	line-height: #{$inputHeight - ($inputBorder * 2)}px;
+	height: #{$inputHeight - ($inputBorder * 2)}px;
+}
+.boss-select label::after{
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	display: block;
+	z-index: 0;
+	text-align: center;
+	width: #{$inputHeight}px;
+	line-height: #{$inputHeight - ($inputBorder * 2)}px;
+	height: #{$inputHeight - ($inputBorder * 2)}px;
+	content: "\e313";
+	font-size: 24px !important;
+	color: rgba(0,0,0,0.5);
+	font-family: 'icomoon' !important;
+	transform: rotate(0deg);
+	transform-origin: center;
+	transition: transform 0.15s ease;
+}
+.boss-select-disabled{
+	cursor: default !important;
+	border-color: $gray4 !important;
+	color: $gray4 !important;
+}
+.boss-select-disabled select{
+	cursor: default !important;
+	color: $gray4 !important;
+}
+.boss-select-disabled label::before{
+	cursor: default !important;
+	background-color: $gray4 !important;
+}
+.boss-select-disabled label::after{
+	cursor: default !important;
+	color: #FFF !important;
+}
+
+
+/* JS SELECT COMPONENT */
+.boss-js-select{
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    outline: none;
+    height: 32px;
+    line-height: 30px;
+    min-width: 120px;
+    background-color: #FFF;
+    border-radius: 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+}
+.boss-js-select select{
+    opacity: 0;
+    position: absolute;
+    border-radius: 2px;
+    z-index: 1;
+    width: 1px;
+    height: 1px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+}
+.boss-js-select-label{
+    cursor: pointer;
+    max-height: 30px;
+    overflow: hidden;
+    height: inherit;
+    line-height: inherit;
+    padding: 10px;
+    padding-left: 0;
+    height: inherit;
+    line-height: inherit;
+    position: relative;
+    z-index: 1;
+    @extend .ho-txt;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+}
+.boss-js-select-label-show{
+    left: -1px;
+    right: -1px;
+    display: block;
+    margin-left: -13px;
+    width: calc(100% + 28px);
+    background-color: #FFF;
+    border-top: none;
+    position: absolute;
+    @include box-shadow(0 6px 10px 0 $gray4);
+    z-index: 4;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+}
+.boss-js-select-search, .boss-js-select-check-all{
+    padding: 5px 10px;
+    background-color: #FFFFFF;
+    height: inherit;
+    line-height: inherit;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+}
+.boss-js-select-search-input{
+    border: none;
+    border-bottom: 1px solid #AAA;
+    outline: none;
+    height: 30px;
+    width: 100%;
+    padding-left: 5px;
+    padding-right: 30px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+}
+.boss-js-select-search div{
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+}
+.boss-js-select-search span{
+    cursor: pointer;
+    top: 4px;
+    right: 6px;
+    width: 30px;
+    height: 28px;
+    line-height: 28px;
+    display: block;
+    text-align: center;
+    position: absolute;
+    color: #333;
+    font-weight: 600;
+    z-index: 2;
+    font-family: 'sans';
+    font-size: 20px;
+    color: #333;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+}
+.boss-js-select div.button{
+    cursor: pointer;
+    float: right;
+    vertical-align: middle;
+    border: 1px solid #AAA;
+    background-color: #F1F1F1;
+    line-height: 24px;
+    text-transform: uppercase;
+    padding: 0px 10px;
+    margin-top: 3px;
+    margin-left: 5px;
+    min-width: 40px;
+    font-size: 10px;
+    font-weight: 400;
+    text-align: center;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+}
+.boss-js-select div.button:hover{
+    background-color: #F1F1F1;
+}
+.boss-js-select-list{
+    background-color: #FFF;
+    width: 100%;
+    display: block;
+    max-height: 320px;
+    overflow: auto;
+    outline: none;
+}
+.boss-js-select-list ul{
+    list-style:  none;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+.boss-js-select-list ul li{
+    position: relative;
+    list-style: none;
+    padding: 0px;
+    @extend .ho-txt;
+    color: $gray1 !important;
+    font-weight: 400 !important;
+}
+.boss-js-select-status{
+    background-color: #FFFFFF;
+    display: block;
+    width: 100%;
+    padding: 5px 10px;
+    @extend .ho-txt;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+}
+.boss-js-select .boss-comp-radio + label{
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    line-height: 16px !important;
+    font-size: 12px !important;
+    padding: 9px 10px !important;
+    box-sizing: border-box !important;
+    -moz-box-sizing: border-box !important;
+    -webkit-box-sizing: border-box !important;
+    -ms-box-sizing: border-box !important;
+    -o-box-sizing: border-box !important;
+}
+.boss-js-select .boss-comp-radio + label:hover{
+    background-color: #F1F1F1 !important;
+}
+@media all and (min-width: 322px) and (max-width: 800px){
+
+    /* FILTER COMPONENT */
+    .boss-js-select{
+        height: 40px;
+        line-height: 40px;
+        position: static;
+    }
+    .boss-js-select-label-show{
+        position: fixed;
+        top: 80px;
+        left: 40px;
+        right: 40px;
+        width: auto;
+    }
+    .boss-js-select-search span{
+        top: 6px;
+        right: 6px;
+        width: 34px;
+        height: 34px;
+        line-height: 32px;
+        font-size: 24px;
+    }
+}
+@media all and (max-width: 321px){
+
+    /* FILTER COMPONENT */
+    .boss-js-select{
+        height: 40px;
+        line-height: 40px;
+        position: static;
+    }
+    .boss-js-select-label-show{
+        position: fixed;
+        top: 80px;
+        left: 40px;
+        right: 40px;
+        width: auto;
+    }
+    .boss-js-select-search span{
+        top: 6px;
+        right: 6px;
+        width: 34px;
+        height: 34px;
+        line-height: 32px;
+        font-size: 24px;
+    }
+    .boss-js-select-list{
+        max-height: 260px;
+    }
+}

@@ -1,0 +1,176 @@
+/* FOOTER */
+.footer{
+	display: block;
+	width: 100%;
+	min-height: 10vh;
+	padding-bottom: 90px;
+	@include border-box;
+	background-color: $colorWhite;
+	color: white;
+
+	& img{
+		width: 60px;
+	}
+}
+
+/* PC */
+
+.footer-pc {
+	display: block;
+	width: 100%;
+	padding: 60px 0;
+	@include border-box;
+	@include box-shadow($shadowBox);
+
+	& .foo-box {
+		display: block;
+		width: 100%;
+		max-width: $maxPC;
+		margin: auto;
+	}
+
+	& .foo-contato{
+		display: inline-block;
+		width: 150px;
+		vertical-align: top;
+
+		& .box-img {
+			display: block;
+			width: 40px;
+		
+			& img {
+				display: block;
+				width: 100%;
+			}
+		}
+	}
+	& .foo-central{
+		display: inline-block;
+		width: calc(100% - 550px);
+		vertical-align: top;
+
+		& .foo-central-a {
+			display: inline-block;
+			width: 50%;
+			vertical-align: top;
+
+			& .box-img {
+				display: block;
+				margin: 0;
+				width: 120px;
+			
+				& img {
+					display: block;
+					width: 100%;
+				}
+			}
+		}
+		& .foo-central-b {
+			display: inline-block;
+			width: 50%;
+			vertical-align: top;
+		}
+	}
+	& .foo-link{
+		display: inline-block;
+		width: 350px;
+		vertical-align: top;
+
+		/* AREA LINKS */
+		.indx-box-links {
+
+			display: block;
+			width: 100%;
+			margin: 0;
+
+			& .indx-box-links-img {
+
+				& .indx-links-img {
+
+					width: 80px;
+				}
+			}
+		}
+	}
+
+	& .foo-objetiva {
+		display: block;
+		width: 100%;
+
+		& .foo-objetiva-a {
+			display: inline-block;
+			width: 50%;
+			vertical-align: middle;
+			padding-right: 5px;
+			@include border-box;
+		}
+
+		& .foo-objetiva-b{
+			padding-left: 5px;
+			@include border-box;
+			display: inline-block;
+			width: 50%;
+			vertical-align: middle;
+
+			& .box-img {
+				margin: 0;
+				display: block;
+				width: 80px;
+			
+				& img {
+					display: block;
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+
+/*
+	LARGE SCREEN 
+	max-width: 1370px
+	min-width: 1201px
+*/
+@mixin footer--large(){
+}
+/* 
+	MEDIUM SCREEN 
+	max-width: 1200px
+	min-width: 1024px
+*/
+@mixin footer--medium(){
+}
+/*
+	TABLET LANDSCAPE 
+	max-width: 1023px
+	min-width: 768px
+*/
+@mixin footer--tablet-landscape(){
+}
+/*
+	TABLET PORTRAIT 
+	max-width: 767px
+	min-width: 641px
+*/
+@mixin footer--tablet-portrait(){
+}
+/*
+	SMARTPHONE LANDSCAPE
+	max-width: 640px
+	min-width: 482px
+*/
+@mixin footer--smart-landscape(){
+}
+/*
+	SMARTPHONE PORTRAIT
+	max-width: 481px
+	min-width: 321px
+*/
+@mixin footer--smart-portrait(){
+}
+/*
+	OLD SMARTPHONE
+	max-width: 320px
+*/
+@mixin footer--smart-old(){
+}

@@ -51,7 +51,7 @@
     echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
 **/
 
-const projeto = 'SS',
+const projeto = 'Abigor',
       msg     = 'O arquivo "<%= file.relative %>" foi compilado com sucesso!';
 
 var gulp = require('gulp'),
@@ -66,11 +66,6 @@ var gulp = require('gulp'),
     notify = require('gulp-notify'),
     sourcemaps = require('gulp-sourcemaps');
 
-
-const escuta_php = [
-  '*.php',
-  '*.php'
-];
 
 
 gulp.task('scss', function(){
@@ -91,23 +86,44 @@ gulp.task('scss', function(){
       })
       //.pipe(notify({ title:projeto+' - Desenvolvimento', message: msg }));
 });
+gulp.task('site', function(cb){
+  // Função compila o SITE.JS com Map para Debugar
+  return gulp.src(contate_site)
+    .pipe(sourcemaps.init())
+    .pipe(concat('site.min.js'))
+    .pipe(sourcemaps.write('./map'))
+    .pipe(gulp.dest('js'))
+      .pipe(reload({ stream:true }))
+      .on('error', function(err) {
+         /// notify().write(err);
+          done(erro); 
+      })
+    //.pipe(notify({ title:projeto+' - Desenvolvimento', message: msg}))
+});
+
 
 gulp.task('dev', function() {
   connect.server({}, function (){
    browserSync.init({
-        proxy: 'http://ss.local/'
+        proxy: 'http://abigor.local:80/'
       });
     });
 
-    gulp.watch(escuta_php).on('change', function () {
+    gulp.watch('./*.php').on('change', function () {
       browserSync.reload();
     });
 
     gulp.watch(['css/scss/**/*.scss'],['scss']);
-    gulp.watch('css/icones/icones.css',['icones']);
     gulp.watch('js/js/boss/boss.js', ['boss']);
     gulp.watch('js/js/**.js', ['site']);
 });
+
+
+
+
+
+
+
 
 const contate_site = [
   'js/js/site.js'
@@ -164,6 +180,7 @@ gulp.task('boss', function(cb){
     .pipe(sourcemaps.init())
     .pipe(rename('boss.min.js'))
     .pipe(sourcemaps.write('./map'))
+    .pipe(reload({ stream:true }))
     .pipe(gulp.dest('js'))
     .on('error', function(err) {
         notify().write(err);
@@ -171,21 +188,6 @@ gulp.task('boss', function(cb){
     })
     //.pipe(notify({ title:projeto+' - Desenvolvimento', message: msg }));
 });
-
-gulp.task('site', function(cb){
-  // Função compila o SITE.JS com Map para Debugar
-  return gulp.src(contate_site)
-    .pipe(sourcemaps.init())
-    .pipe(concat('site.min.js'))
-    .pipe(sourcemaps.write('./map'))
-    .on('error', function(err) {
-        notify().write(err);
-        this.emit('end');
-    })
-    //.pipe(notify({ title:projeto+' - Desenvolvimento', message: msg}))
-    .pipe(gulp.dest('js'));
-});
-
 
 gulp.task('icones', function(){
   // Função compila o SCSS com Map para Debugar
@@ -217,6 +219,7 @@ gulp.task('icones', function(){
 gulp.task('default', function() {
     gulp.watch(['css/scss/**/*.scss'],['scss']);
     gulp.watch('css/icones/icones.css',['icones']);
+    gulp.watch('js/js/boss/boss.js', ['boss']);
     gulp.watch('js/js/**.js', ['site']);
 });
 
@@ -226,5 +229,13 @@ gulp.task('css', function() {
 });
 
 gulp.task('js', function() {
+  gulp.watch('js/js/boss/boss.js', ['boss']);
   gulp.watch('js/js/**.js', ['site']);
+});
+
+gulp.task('producao', function() {
+  gulp.watch('css/scss/**/*.scss',['scss_producao']);
+  gulp.watch('css/icones/icones.css',['icones_producao']);
+  gulp.watch('js/js/boss/boss.js', ['boss_producao']);
+  gulp.watch('js/js/**.js', ['site_producao']);
 });

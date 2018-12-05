@@ -35,7 +35,6 @@
 	}
 }
 
-
 @mixin max{
 
 	/* Exemplo <div class="maxwidth320"></div> */
@@ -202,42 +201,42 @@
 	}
 }
 
+@mixin gradient($value){
+	background: linear-gradient(#{$value});
+	background: -moz-linear-gradient(#{$value});
+	background: -webkit-linear-gradient(#{$value});
+}
+
 /* OTIMIZAÇÃO */
 @mixin rotating{
 	.rotating{
-		-webkit-animation: rotating 1s cubic-bezier(0.24, 0.49, 0.71, 0.54) infinite;
-		-moz-animation: rotating 1s cubic-bezier(0.24, 0.49, 0.71, 0.54) infinite;
-		-ms-animation: rotating 1s cubic-bezier(0.24, 0.49, 0.71, 0.54) infinite;
-		-o-animation: rotating 1s cubic-bezier(0.24, 0.49, 0.71, 0.54) infinite;
-		animation: rotating 1s cubic-bezier(0.24, 0.49, 0.71, 0.54) infinite;
+		@include animation(rotating 1s cubic-bezier(0.24, 0.49, 0.71, 0.54) infinite);
 	}
-	@keyframes rotating{
+	@include keyframes(rotating){
 		from{
-			transform: rotate(0deg);
-			-o-transform: rotate(0deg);
-			-ms-transform: rotate(0deg);
-			-moz-transform: rotate(0deg);
-			-webkit-transform: rotate(0deg);
+			@include rotate(0deg);
 		}
 		to{
-			transform: rotate(360deg);
-			-o-transform: rotate(360deg);
-			-ms-transform: rotate(360deg);
-			-moz-transform: rotate(360deg);
-			-webkit-transform: rotate(360deg);
-		}
-	}
-	@-webkit-keyframes rotating{
-		from{
-			transform: rotate(0deg);
-			-webkit-transform: rotate(0deg);
-		}
-		to{
-			transform: rotate(360deg);
-			-webkit-transform: rotate(360deg);
+			@include rotate(360deg);
 		}
 	}
 }
+
+@mixin keyframes($nomeAnimacao){
+    @-webkit-keyframes #{$nomeAnimacao} {
+        @content;
+    }
+    @-moz-keyframes #{$nomeAnimacao} {
+        @content;
+    }
+    @-o-keyframes #{$nomeAnimacao} {
+        @content;
+    }
+    @keyframes #{$nomeAnimacao} {
+        @content;
+    }
+}
+
 @mixin animation-direction($value){
 	-moz-animation-direction: #{$value};
 	-webkit-animation-direction: #{$value};
@@ -299,6 +298,11 @@
 	-moz-user-select: $valor;
 	-ms-user-select: $valor;
 	-o-user-select: $valor;
+}
+@mixin transform($value){
+	-webkit-transform: #{$value};
+		-o-transform: #{$value};
+			transform: #{$value};
 }
 @mixin rotate($deg){
 	-webkit-transform: rotate($deg);

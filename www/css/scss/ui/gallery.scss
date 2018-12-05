@@ -1,0 +1,193 @@
+.ui-gallery{
+	display: block;
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	padding: 0px;
+	margin-left: 0px;
+	outline: none;
+	@include user-select('none');
+	@include border-box;
+}
+.ui-gallery-bg{
+	position: absolute;
+	z-index: 0;
+	overflow: hidden;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	width: 100%;
+	background-color: #f0f0f0;
+}
+.ui-gallery-background{
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: table;
+	width: calc(100vw + 60px);
+	height: calc(100vh + 60px);
+	margin: -30px;
+	@include filter('blur(15px) brightness(50%)');
+	@include animation('background 0.2s cubic-bezier(0.05, 0.75, 0.45, 0.95)');
+	@include transition('background 0.2s cubic-bezier(0.05, 0.75, 0.45, 0.95)');
+}
+.ui-gallery-width{
+	display: block;
+	position: relative;
+	z-index: 1;
+	margin: auto;
+	padding: 0px;
+	width: 100%;
+	min-height: 150px;
+}
+.ui-gallery-canvas{
+	display: block;
+	margin: auto;
+	text-align: center;
+	padding: 0px;
+	width: inherit;
+	max-width: inherit;
+	overflow: hidden;
+}
+.ui-gallery-video{
+	display: block;
+	margin: auto;
+	text-align: center;
+	padding: 0px;
+	max-width: inherit;
+	overflow: hidden;
+}
+.ui-gallery-video iframe{
+	width: inherit;
+	height: inherit;
+	padding: 0px;
+	margin: 0px;
+}
+.ui-gallery-canvas-img{
+	display: table-cell;
+	vertical-align: middle;
+	width: inherit;
+	height: inherit;
+	min-height: inherit;
+	max-width: inherit;
+	max-height: inherit;
+}
+.ui-gallery-canvas-img img{
+	display: block;
+	margin: auto;
+	width: auto;
+	height: inherit;
+	max-width: inherit;
+	max-height: inherit;
+	padding: 0px;
+}
+.ui-gallery-subtitle{
+	font-size: 14px;
+	display: block;
+	position: absolute;
+	top: 20px;
+	left: 50%;
+	background-color: #FFF;
+	padding: 5px;
+	transform: translateX(-50%) translateY(-100%);
+	cursor: default;
+}
+.ui-gallery-btn{
+	border: none;
+	background-color: rgba(0,0,0,0);
+	font-size: inherit;
+	position: relative;
+	z-index: 1;
+	cursor: pointer;
+}
+.ui-gallery-full-screen{
+	border-radius: 0;
+	position: fixed !important;
+	z-index: 9998 !important;
+	top: 0px !important;
+	left: 0px !important;
+	right: 0px !important;
+	bottom: 0px !important;
+	height: 100vh;
+	max-height: 100vh;
+}
+.ui-gallery-full-screen .ui-gallery-width{
+	width: 100vh !important;
+	height: 100vh !important;
+	min-width: 100vw !important;
+	max-width: 100vw !important;
+	height: 100vh !important;
+	min-height: 100vh !important;
+	max-height: 100vh !important;
+}
+.ui-gallery-full-screen .ui-gallery-canvas{
+	background-color: #000;
+	width: 100vw !important;
+	height: auto !important;
+	min-width: 100vw !important;
+	max-width: 100vw !important;
+	min-height: 100vh !important;
+	max-height: 100vh !important;
+}
+.ui-gallery-full-screen .ui-gallery-video{
+	width: 100vw !important;
+	height: 100vh !important;
+}
+.ui-gallery-full-screen .ui-gallery-canvas-img{
+	width: 100vw !important;
+	height: 100vh !important;
+}
+.ui-gallery-full-screen .ui-gallery-canvas-img img{
+	height: auto !important;
+	min-width: auto !important;
+	max-width: 100vw !important;
+	min-height: auto !important;
+	max-height: 100vh !important;
+}
+.ui-gallery-full-screen .ui-gallery-subtitle{
+	top: initial !important;
+	bottom: 0px !important;
+}
+
+.ui-gallery-drop .ui-gallery-left{
+	margin-left: 0px !important;
+}
+.ui-gallery-drop .ui-gallery-right{
+	margin-right: 0px !important;
+}
+.ui-gallery-drop .ui-gallery-full{
+	margin-right: 0px !important;
+}
+.ui-gallery-drop .ui-gallery-photo{
+	margin-left: 0px !important;
+}
+.ui-gallery-drop .ui-gallery-play{
+	margin-left: 0px !important;
+}
+
+.ui-gallery-full-screen .ui-gallery-left{
+	margin-left: 0px !important;
+}
+.ui-gallery-full-screen .ui-gallery-right{
+	margin-right: 0px !important;
+}
+.ui-gallery-full-screen .ui-gallery-full{
+	margin-right: 0px !important;;
+}
+.ui-gallery-full-screen .ui-gallery-photo{
+	margin-left: 0px !important;
+}
+.ui-gallery-full-screen .ui-gallery-play{
+	margin-left: 0px !important;
+}
+
+.ux-feed-drag{
+	width: 50vw;
+	max-width: 280px;
+	position: absolute;
+	z-index: 2;
+	top: 40%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+}

@@ -1,0 +1,100 @@
+/* COLORS */
+$colorPrimary	: #2a86ca;
+$colorSecondary : #0077D5;
+$colorTerciary	: #004976;
+$colorDanger 	: #fe5e6c;
+$colorWhite 	: #ffffff;
+$colorAccent 	: #5bbeff;
+$tooltipColor	: #5bbeff;
+$transparent    : rgba(0,0,0,0);
+$shadowBox 		: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+$shadowBoxHover	: 0px 0px 15px 0px rgba(0, 0, 0, 0.15);
+$sizeNav		: 12px;
+
+$gray1: #7C7C7C;
+$gray2: #A0A0A0;
+$gray3: #C9C9C9;
+$gray4: #C3C3C3;
+$gray5: #f5f5f5;
+
+$escuro: #0077D5;
+$claro: #0096F5;
+
+$velocidadeAnima: 0.25s;
+$maxPC: 1220px;
+
+
+
+// ############################################ //
+// ############################################ //
+// ############################################ //
+
+
+
+
+/* CONFIG BTN - BUTTONS */
+$prefix: 'btn';
+$btnHeight: 50;
+
+$btnBorder: 1;
+$btnBorderRadius: 3;
+
+$btnPdLeft: 30;
+$btnPdRight: 30;
+
+$btnFont: 16;
+$btnFontWeight: 400;
+$btnmenuHei: 30;
+
+
+
+
+// ############################################ //
+// ############################################ //
+// ############################################ //
+
+
+
+
+/* CONFIG INPUTS - FORM */
+$inputHeight: 70;
+$inputBorder: 1;
+$inputBorderCheckbox: 2;
+$inputBorderColor: $colorWhite;
+$inputBackgroundColor: rgba(0,0,0,0);
+$inputBorderRadius: 3;
+$inputBorderRadiusCheckbox: 3;
+$inputPdLeft: 10;
+$inputPdRight: 10;
+
+$inputTextColor: $gray1;
+$inputPlaceHolder: ($gray2 + 10);
+
+$labelColor: $gray1;
+$labelBackgroundColor: rgba(0,0,0,0);
+$inputTextSize: 16px;
+
+$inputBorderColorFocus: $gray3;
+
+/* MOBILE */
+$mobileIncrease: 0;
+$mobileTextSize: 15px;
+
+
+
+
+// ############################################ //
+// ############################################ //
+// ############################################ //
+
+
+
+
+
+
+/* TABS */
+$lineColor: #DDD;
+$normalColor: #F8F8F8;
+$hoverColor: #F1F1F1;
+$activeColor: #FFFFFF;
+$textColor: #505050;

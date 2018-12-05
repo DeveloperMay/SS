@@ -1,0 +1,43 @@
+/* AREA duvidasS */
+
+/* INDEX */
+.indx-box-duvidas {
+
+	& .indx-duvidas-img-box {
+
+		display: inline-block;
+		vertical-align: middle;
+		width: 40px;
+
+		& img {
+			display: block;
+			width: 100%;
+		}
+	}
+
+	& .indx-duvidas-nome-box {
+		
+		padding: 0 10px;
+		display: inline-block;
+		vertical-align: middle;
+		width: calc(100% - 80px);
+		@include border-box;
+	}
+
+	& .indx-duvidas-botao-box {
+
+		display: inline-block;
+		vertical-align: middle;
+		width: 40px;
+	}
+}
+/*
+	OLD SMARTPHONE
+	max-width: 320px
+*/
+@mixin duvidas--smart-old(){
+
+	.indx-box-duvidas {
+		padding: 10px;
+	}
+}

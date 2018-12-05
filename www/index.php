@@ -1,5 +1,5 @@
 <?
 
-	require_once '../SS/settings.php';
-	require_once '../SS/MVC_Maydana.php';
+	require_once '../settings.php';
+	require_once '../MVC_Maydana.php';
 	new MVC_Maydana();

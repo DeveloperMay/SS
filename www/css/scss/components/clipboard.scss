@@ -1,0 +1,70 @@
+/* COPY TO CLIPBOARD */
+.boss-auto-clipboard{
+	position: relative;
+}
+.boss-auto-clipboard::after{
+	@include animation('all 0.3s ease-in-out');
+	@include transition('all 0.3s ease-in-out');
+	box-shadow: none !important;
+	outline: none !important;
+}
+.boss-auto-clipboard:hover{
+	text-decoration: underline !important;
+	box-shadow: none !important;
+	outline: none !important;
+}
+.boss-auto-clipboard:hover::after{
+	cursor: pointer;
+	content: "clique p/ copiar";
+	text-align: center;
+	color: #FFF;
+	font-weight: bold;
+	font-size: 10px;
+	position: absolute;
+	top: 5%;
+	left: 5%;
+	background-color: $colorDanger;
+	padding: 4px;
+	width: 100px;
+	z-index: 1;
+	border-radius: 4px;
+	opacity: 1;
+	transform: translateY(0%);
+	box-shadow: none !important;
+	outline: none !important;
+
+}
+.boss-auto-clipboard-sucess:hover::after{
+	content: "copiado!";
+	background-color: $colorAccent;
+	transform: translateY(-50%);
+	opacity: 0;
+	box-shadow: none !important;
+	outline: none !important;
+}
+.boss-auto-clipboard-sucess::after{
+	animation: clipboard_k 0.4s ease-in-out;
+	animation-fill-mode: forwards;
+	transform-origin: center center;
+	box-shadow: none !important;
+	outline: none !important;
+}
+
+
+@include keyframes('clipboard_k'){
+	0% {
+		transform: translateY(0%);
+		opacity: 1;
+	}
+	5% {
+		transform: translateY(5%);
+		opacity: 1;
+	}
+	80%{
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(-50%);
+		opacity: 0;
+	}
+}

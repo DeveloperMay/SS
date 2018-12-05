@@ -1,0 +1,31 @@
+.box-duvidas-pc{
+	display: block;
+	width: 100%;
+
+	& .box-bloco-a{
+		display: inline-block;
+		width: 400px;
+		vertical-align: top;
+	}
+
+	& .box-bloco-b{
+		display: inline-block;
+		width: calc(100% - 400px);
+		vertical-align: top;
+	}
+
+	& .box-a-pc {
+		display: inline-block;
+		width: 50%;
+		vertical-align: middle;
+		padding: 20px;
+		@include border-box;
+	}
+	& .box-b-pc {
+		display: inline-block;
+		width: 50%;
+		vertical-align: middle;
+		padding: 20px;
+		@include border-box;
+	}
+}

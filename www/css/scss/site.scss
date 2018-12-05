@@ -1,0 +1,146 @@
+.primary{
+	color: $colorPrimary !important;
+}
+.secondary{
+	color: $colorSecondary !important;
+}
+.terciary{
+	color: $colorTerciary !important;
+}
+.red{
+	color: $colorDanger !important;
+}
+.black{
+	color: $gray1;
+}
+.bg-gray1{
+	display: table;
+	width: 100%;
+	background-color: $gray1;
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.bg-gray2{
+	display: table;
+	width: 100%;
+	background-color: $gray2;
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.bg-gray3{
+	display: table;
+	width: 100%;
+	background-color: $gray3;
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.bg-gray4{
+	display: table;
+	width: 100%;
+	background-color: $gray4;
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.bg-gray5{
+	display: table;
+	width: 100%;
+	background-color: $gray5;
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.bg-primary{
+	display: table;
+	width: 100%;
+	background-color: $colorPrimary;
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.bg-secondary{
+	display: table;
+	width: 100%;
+	background-color: $colorSecondary;
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.bg-terciary{
+	display: table;
+	width: 100%;
+	background-color: $colorTerciary;
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.bg-danger{
+	display: table;
+	width: 100%;
+	background-color: $colorDanger;
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.bg-gradient{
+	display: table;
+	width: 100%;	
+	@include gradient('to left, #{$claro} 0%, #{$escuro} 100%');
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+/*
+	LARGE SCREEN 
+	max-width: 1370px
+	min-width: 1201px
+*/
+@mixin site--large(){
+}
+/* 
+	MEDIUM SCREEN 
+	max-width: 1200px
+	min-width: 1024px
+*/
+@mixin site--medium(){
+
+}
+/*
+	TABLET LANDSCAPE 
+	max-width: 1023px
+	min-width: 768px
+*/
+@mixin site--tablet-landscape(){
+
+}
+/*
+	TABLET PORTRAIT 
+	max-width: 767px
+	min-width: 641px
+*/
+@mixin site--tablet-portrait(){
+}
+/*
+	SMARTPHONE LANDSCAPE
+	max-width: 640px
+	min-width: 482px
+*/
+@mixin site--smart-landscape(){
+}
+/*
+	SMARTPHONE PORTRAIT
+	max-width: 481px
+	min-width: 321px
+*/
+@mixin site--smart-portrait(){
+}
+/*
+	OLD SMARTPHONE
+	max-width: 320px
+*/
+@mixin site--smart-old(){
+}

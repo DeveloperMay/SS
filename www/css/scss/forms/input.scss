@@ -1,0 +1,229 @@
+/* TEXT */
+.boss-input-text{
+	transform: translateX(0px);
+	transition: transform 0.15s ease;
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	@include form-font();
+	height: #{$inputHeight}px;
+	min-width: #{$inputHeight}px;
+	margin: 2px 0px 2px 0px;
+	padding: 10px;
+	background-color: $inputBackgroundColor;
+	border: #{$inputBorder}px solid $inputBorderColor;
+	@include border-box;
+}
+.boss-input-text i, .boss-input-text label{
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	display: block;
+	width: 100%;
+	font-size: $inputTextSize;
+	font-weight: 400;
+	color: $gray1;
+	background-color: $labelBackgroundColor;
+}
+.boss-input-text i{
+	border-radius: 0 #{$inputBorderRadius}px #{$inputBorderRadius}px 0;
+}
+
+/* TEXTAREA */
+.boss-input-textarea{
+	transform: translateX(0px);
+	transition: transform 0.15s ease;
+	@include form-font();
+	min-height: 120px;
+	border: #{$inputBorder}px solid $inputBorderColor;
+	display: inline-block;
+	margin: 2px 0px 2px 0px;
+	background-color: $inputBackgroundColor;
+	border-radius: #{$inputBorderRadius}px;
+	padding: 0px !important;
+	@include border-box;
+}
+.boss-input-textarea textarea{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	color: $inputTextColor;
+	font-size: $inputTextSize;
+	@include form-font();
+	background-color: rgba(0,0,0,0);
+	border-radius: #{$inputBorderRadius}px;
+	height: inherit;
+	width: 100%;
+	min-height: 100px;
+	border: none;
+	outline: none;
+	resize: none;
+	margin: 0px !important;
+	padding: 20px #{$inputPdLeft}px 20px #{$inputPdRight}px;
+	@include border-box;
+}
+.boss-input-textarea label{
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	display: block;
+	width: #{$inputHeight}px;
+	font-size: $inputTextSize;
+	font-weight: 400;
+	color: $gray1;
+	background-color: $labelBackgroundColor;
+}
+
+/* INPUT ALL */
+.boss-input-text input, .boss-input-text select{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	vertical-align: middle;
+	color: $inputTextColor;
+	font-size: $inputTextSize;
+	@include form-font();
+	background-color: rgba(0,0,0,0);
+	border-radius: #{$inputBorderRadius}px;
+	height: 40px;
+	width: 100%;
+	padding: 0px #{$inputPdLeft}px 0px #{$inputPdRight}px;
+	border: none;
+	outline: none;
+	@include border-box;
+}
+
+/* INPUT COLOR */
+.boss-input-text input[type="color"]{
+	opacity: 0;
+	border: none !important;
+}
+.boss-input-text input[type="color"] + span{
+	right: 0px;
+	text-shadow: 0px 0px 1px #FFF, -1px -1px 1px #FFF, 1px 1px 1px #FFF;
+	line-height: #{$inputHeight - ($inputBorder * 2)}px;
+	padding-right: 10px;
+	font-size: $inputTextSize;
+	display: inline-block;
+	position: absolute;
+	font-weight: bold;
+}
+
+.boss-input-textarea textarea:focus + label {
+
+	color: $colorSecondary !important;
+}
+.boss-input-text input:focus + label {
+
+	color: $colorSecondary !important;
+}
+.boss-input-text input:-webkit-autofill {
+	-webkit-box-shadow:0 0 0 50px rgba(0,0,0,0) inset !important;
+    -webkit-text-fill-color: $gray1 !important;
+    -webkit-transition: color 9999s ease-out, background-color 9999s ease-out;
+    -webkit-transition-delay: 9999s;
+}
+.boss-input-text input[type="password"]{
+	font-weight: 700 !important;
+}
+.boss-input-text input[type="number"]{
+	text-align: right;
+}
+
+.boss-input-text-disabled,
+.boss-input-textarea-disabled{
+	cursor: default !important;
+	border-color: $gray4 !important;
+	color: $gray4 !important;
+}
+.boss-input-text-disabled input,
+.boss-input-textarea-disabled textarea{
+	cursor: default !important;
+	color: $gray4 !important;
+}
+.boss-input-text-disabled label{
+	cursor: default !important;
+	background-color: $gray4 !important;
+	color: #FFF !important;
+}
+
+/* UPLOAD */
+.boss-upload{
+	height: 50px;
+	min-width: 50px;
+	margin: 2px 0px 2px 0px;
+	background-color: $inputBackgroundColor;
+	border: #{$inputBorder}px solid $inputBorderColor;
+	border-radius: #{$inputBorderRadius}px;
+	@include border-box;
+	position: relative;
+}
+.boss-upload input{
+	width: 100%;
+	height: inherit;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	opacity: 0;
+	cursor: pointer;
+	z-index: 3;
+}
+.boss-upload:focus,
+.boss-upload:hover,
+.boss-upload:active{
+
+	& p{
+		color: $colorPrimary !important;
+	}
+	//background-color: rgba(0,0,0,0.1);
+}
+
+/* SCROLL BAR */
+.boss-input-textarea textarea::-webkit-scrollbar{width: 10px; height: 10px;}
+.boss-input-textarea textarea::-webkit-scrollbar-track-piece{background-color: #FFF;}
+.boss-input-textarea textarea::-webkit-scrollbar-thumb:vertical{height: 5px; background-color: #888;}
+.boss-input-textarea textarea::-webkit-scrollbar-thumb:horizontal{ width: 5px; background-color: #888;}
+
+/* PLACEHOLDERS */
+input::placeholder{
+	color: $inputPlaceHolder !important;
+	font-weight: 200 !important;
+}
+input::-webkit-input-placeholder{
+	color: $inputPlaceHolder !important;
+	font-weight: 200 !important;
+}
+input::-moz-placeholder{
+	color: $inputPlaceHolder !important;
+	font-weight: 200 !important;
+}
+input:-ms-input-placeholder{
+	color: $inputPlaceHolder !important;
+	font-weight: 200 !important;
+}
+input:-o-input-placeholder{
+	color: $inputPlaceHolder !important;
+	font-weight: 200 !important;
+}
+textarea::placeholder{
+	color: $inputPlaceHolder !important;
+	font-weight: 200 !important;
+}
+textarea::-webkit-input-placeholder{
+	color: $inputPlaceHolder !important;
+	font-weight: 200 !important;
+}
+textarea::-moz-placeholder{
+	color: $inputPlaceHolder !important;
+	font-weight: 200 !important;
+}
+textarea:-ms-placeholder{
+	color: $inputPlaceHolder !important;
+	font-weight: 200 !important;
+}
+textarea:-o-placeholder{
+	color: $inputPlaceHolder !important;
+	font-weight: 200 !important;
+}

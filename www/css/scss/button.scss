@@ -1,0 +1,441 @@
+/* BTN */
+.#{$prefix}, a.#{$prefix}, a.#{$prefix}:visited{
+	position: relative;
+	cursor: pointer;
+	display: inline-block;
+	vertical-align: middle;
+	line-height: #{$btnHeight - ($btnBorder * 2)}px;
+	text-align: center;
+	border: #{$btnBorder}px solid #{$gray3};
+	border-radius: #{$btnBorderRadius}px;
+	padding-left: #{$btnPdLeft}px;
+	padding-right: #{$btnPdRight}px;
+	padding-top: 0;
+	padding-bottom: 0;
+	margin: 2px 0px 2px 0px;
+	background-color: $gray4;
+	color: $gray1;
+	font-size: #{$btnFont}px;
+	font-weight: $btnFontWeight;
+	font-family: inherit;
+	text-transform: uppercase;
+	letter-spacing: 0px;
+	word-spacing: normal;
+	transition: background .25s linear;
+	outline: none;
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	transition: background .15s cubic-bezier(0.45, 0, 0.95, 0.5), 
+		border .15s cubic-bezier(0.45, 0, 0.95, 0.5), 
+		color .15s linear, 
+		scale .15s linear, 
+		translateY .15s linear;
+
+}
+
+.#{$prefix}-no-margin, a.#{$prefix}-no-margin{
+	margin: 0 !important;
+}
+
+.#{$prefix}-no-right, a.#{$prefix}-no-right{
+	border-right: none !important;
+	border-top-right-radius: 0 !important;
+	border-bottom-right-radius: 0 !important;
+}
+.#{$prefix}-no-center, a.#{$prefix}-no-center{
+	border-right: none !important;
+	border-left: none !important;
+	border-radius: 0 !important;
+}
+.#{$prefix}-no-left, a.#{$prefix}-no-left{
+	border-left: none !important;
+	border-top-left-radius: 0 !important;
+	border-bottom-left-radius: 0 !important;
+}
+
+.#{$prefix}-no-bottom, a.#{$prefix}-no-bottom{
+	border-bottom: none !important;
+	border-bottom-left-radius: 0 !important;
+	border-bottom-right-radius: 0 !important;
+}
+.#{$prefix}-no-vcenter, a.#{$prefix}-no-vcenter{
+	border-top: none !important;
+	border-bottom: none !important;
+	border-radius: 0 !important;
+}
+.#{$prefix}-no-top, a.#{$prefix}-no-top{
+	border-top: none !important;
+	border-top-left-radius: 0 !important;
+	border-top-right-radius: 0 !important;
+}
+.#{$prefix}-text-left, a.#{$prefix}-text-left{
+	text-align: left !important;
+}
+.#{$prefix}-text-right, a.#{$prefix}-text-right{
+	text-align: right !important;
+}
+
+.#{$prefix}:hover, .#{$prefix}:focus, a.#{$prefix}:hover, a.#{$prefix}:focus{
+	background-color: ($gray4 - #101010);
+	color: ($gray1 - #101010);
+	border-color: (#{$gray3} - #101010);
+	transition: background .15s cubic-bezier(0.45, 0, 0.95, 0.5), 
+		border .15s cubic-bezier(0.45, 0, 0.95, 0.5), 
+		color .15s linear, 
+		scale .15s linear, 
+		translateY .15s linear;
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+	font-size: #{$btnFont}px;
+	font-weight: $btnFontWeight;
+}
+.#{$prefix}:active, a.#{$prefix}:active{
+	background-color: ($gray4 - #202020);
+	color: ($gray1 - #202020);
+	border-color: (#{$gray3} - #202020);
+	transition: background .15s cubic-bezier(0.45, 0, 0.95, 0.5), 
+		border .15s cubic-bezier(0.45, 0, 0.95, 0.5), 
+		color .15s linear, 
+		scale .15s linear, 
+		translateY .15s linear;
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+	font-size: #{$btnFont}px;
+	font-weight: $btnFontWeight;
+}
+.#{$prefix}:disabled, .#{$prefix}:disabled:hover, .#{$prefix}-disabled, .#{$prefix}-disabled:hover, .#{$prefix}-disabled:focus, .#{$prefix}-disabled:active{
+	background-color: ($gray4 + #101010) !important;
+	color: ($gray3 - #101010) !important;
+	cursor: default !important;
+	border: #{$btnBorder}px solid #{$gray4} !important;
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+	font-size: #{$btnFont}px;
+	font-weight: $btnFontWeight;
+}
+@mixin make-button($name, $a, $b, $c, $d){
+
+	.#{$prefix}-#{$name}, a.#{$prefix}-#{$name}, a.#{$prefix}-#{$name}:visited{
+
+		@if $a == rgba(0,0,0,0) {
+			background-color: rgba(0,0,0,0);
+		} @else {
+			background-color: $a;
+		}
+
+		@if $b == rgba(0,0,0,0) {
+			color: rgba(0,0,0,0);
+		} @else {
+			color: $b;
+		}
+
+		@if $c == rgba(0,0,0,0) {
+			border-color: rgba(0,0,0,0);
+		} @else {
+			border-color: ($c - #101010);
+		}
+
+		@if $d > 0 {
+			line-height: #{$btnHeight - ($d * 2)}px;
+		} @else {
+			line-height: #{$btnHeight}px;
+		}
+
+		border-width: #{$d}px;
+	}
+}
+
+@mixin make-button-hover($name, $a, $b, $c, $d){
+	.#{$prefix}-#{$name}:hover, .#{$prefix}-#{$name}:focus, a.#{$prefix}-#{$name}:hover, a.#{$prefix}-#{$name}:focus{
+
+		@if $a == rgba(0,0,0,0) {
+			background-color: rgba(0,0,0,0);
+		} @else {
+			background-color: ($a - #101010);
+		}
+
+		@if $b == rgba(0,0,0,0) {
+			color: rgba(0,0,0,0);
+		} @else {
+			color: ($b + #101010);
+		}
+
+		@if $c == rgba(0,0,0,0) {
+			border-color: rgba(0,0,0,0);
+		} @else {
+			border-color: ($c - #252525);
+		}
+
+		@if $d > 0 {
+			line-height: #{$btnHeight - ($d * 2)}px;
+		} @else {
+			line-height: #{$btnHeight}px;
+		}
+
+		border-width: #{$d}px;
+
+	}
+
+	/* BOX SHADOW ONLY ON FOCUS */
+	.#{$prefix}-#{$name}:focus, a.#{$prefix}-#{$name}:focus{
+		@if $a == rgba(0,0,0,0) {
+			box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.4);
+		} @else {
+			box-shadow: 0px 0px 1px 1px ($a + #303030);
+		}
+	}
+}
+
+@mixin make-button-active($name, $a, $b, $c, $d){
+	.#{$prefix}-#{$name}:active, a.#{$prefix}-#{$name}:active{
+
+		@if $a == rgba(0,0,0,0) {
+			background-color: rgba(0,0,0,0);
+		} @else {
+			background-color: ($a - #101010);
+		}
+
+		@if $b == rgba(0,0,0,0) {
+			color: rgba(0,0,0,0);
+		} @else {
+			color: ($b + #202020);
+		}
+
+		@if $c == rgba(0,0,0,0) {
+			border-color: rgba(0,0,0,0);
+		} @else {
+			border-color: ($c - #303030);
+		}
+
+		@if $d > 0 {
+			line-height: #{$btnHeight - ($d * 2)}px;
+		} @else {
+			line-height: #{$btnHeight}px;
+		}
+
+		border-width: #{$d}px;
+	}
+}
+
+/* BUTTON GENERATOR */
+
+/* MENU */
+@include make-button('menu', $transparent, $transparent, $transparent, 0);
+@include make-button-hover('menu', $transparent, $transparent, $transparent, 0);
+@include make-button-active('menu', $transparent, $transparent, $transparent, 0);
+
+/* IMAGENS */
+@include make-button('imagem', $transparent, $transparent, $transparent, 0);
+@include make-button-hover('imagem', $transparent, $transparent, $transparent, 0);
+@include make-button-active('imagem', $transparent, $transparent, $transparent, 0);
+
+/* NAV */
+@include make-button('nav', $transparent, $gray1, $transparent, 0);
+@include make-button-hover('nav', $transparent, $gray1, $transparent, 0);
+@include make-button-active('nav', $transparent, $gray1, $transparent, 0);
+
+/* SHARE */
+@include make-button('share', $transparent, $gray1, $transparent, 0);
+@include make-button-hover('share', $transparent, $gray1, $transparent, 0);
+@include make-button-active('share', $transparent, $gray1, $transparent, 0);
+
+
+
+
+
+
+/* FLAT */
+@include make-button('flat', $transparent, $colorPrimary, $gray4, 1);
+@include make-button-hover('flat', $transparent, $colorPrimary, $gray3, 1);
+@include make-button-active('flat', $transparent, $colorPrimary, $gray3, 1);
+
+
+
+
+
+
+
+
+
+
+/* PAGINATION */
+@include make-button('pagination', $transparent, $colorPrimary, $transparent, 0);
+@include make-button-hover('pagination', $transparent, $colorPrimary, $transparent, 0);
+@include make-button-active('pagination', $transparent, $colorPrimary, $transparent, 0);
+
+/* PRIMARY */
+@include make-button('primary', rgba(0,0,0,0), $colorWhite, $transparent, 0);
+@include make-button-hover('primary', rgba(0,0,0,0), $colorWhite, $transparent, 0);
+@include make-button-active('primary', rgba(0,0,0,0), $colorWhite, $transparent, 0);
+
+/* PAG */
+@include make-button('pag', $transparent, $gray1, $transparent, 0);
+@include make-button-hover('pag', $transparent, $gray1, $transparent, 0);
+@include make-button-active('pag', $transparent, $gray1, $transparent, 0);
+
+
+.btn-flat{
+
+	line-height: 36px !important;
+	font-size: 12px !important;
+	padding-right: 10px !important;
+	padding-left: 10px !important;
+	&:hover, &:focus, &:active, &:disabled, &:target{
+
+		padding-right: 10px !important;
+		padding-left: 10px !important;
+		font-size: 12px !important;
+		line-height: 36px !important;
+	}
+}
+
+
+.btn-primary{
+	@include border-radius(30px);
+
+	background: -webkit-gradient(linear, left top, right top, from($claro), to($escuro)) no-repeat;
+	background: -moz-linear-gradient(left, $claro, $escuro);
+	filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=1, StartColorStr=$claro, EndColorStr=$escuro);
+
+	&:hover {
+
+		$escuroM : ($escuro - 10);
+		background: -webkit-gradient(linear, left top, right top, from($claro), to($escuroM)) no-repeat;
+		background: -moz-linear-gradient(left, $claro, $escuroM);
+		filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=1, StartColorStr=$claro, EndColorStr=$escuroM);
+	}
+}
+
+.btn-menu{
+
+	padding: 15px;
+	font-size: 25px;
+	background-color: rgba(0,0,0,0);
+	@include box-shadow(none);
+	line-height: 50px;
+
+	&:hover, &:focus, &:active, &:disabled, &:target{
+
+		padding: 15px !important;
+		font-size: 25px;
+		background-color: rgba(0,0,0,0);
+		@include box-shadow(none);
+		line-height: 50px;
+	}
+}
+
+.btn-imagem{
+
+	line-height: 10px;
+
+	background-color: rgba(0,0,0,0);
+	@include box-shadow(none);
+	padding: 0 !important;
+	margin: 0 !important;
+
+	&:hover, &:focus, &:active, &:disabled, &:target{
+
+		padding: 0 !important;
+		margin: 0 !important;
+    	line-height: 10px;
+		@include box-shadow(none);
+	}
+}
+
+.btn-nav{
+
+	padding: 13px;
+	line-height: 12px;
+	margin: 0;
+	font-size: 22px;
+	background-color: rgba(0,0,0,0);
+	box-shadow: none;
+
+	&:hover, &:focus, &:active, &:disabled, &:target{
+
+		padding: 13px;
+		line-height: 12px;
+		margin: 0;
+		font-size: 22px;
+		box-shadow: none;
+		background-color: rgba(0,0,0,0);
+	}
+}
+
+a.btn-pag{
+
+	display: inline !important;
+	font-size: 22px !important;
+	background-color: rgba(0,0,0,0) !important;
+	box-shadow: none !important;
+
+	color: $gray2 !important;
+	@include border-radius(50%);
+	&:hover, &:focus, &:active, &:disabled, &:target{
+
+		color: $gray2 !important;
+		display: inline !important;
+		font-size: 22px !important;
+		background-color: rgba(0,0,0,0) !important;
+		box-shadow: none !important;
+	}
+}
+a.btn-pag-ativo {
+
+	color: $colorPrimary !important;
+}
+
+.btn-share{
+
+	padding: 13px !important;
+	line-height: 12px !important;
+	margin: 0 !important;
+	font-size: 18px !important;
+	background-color: rgba(0,0,0,0) !important;
+	color: $gray1;
+
+	&:hover, &:focus, &:active, &:disabled, &:target{
+
+		color: $colorPrimary;
+		margin: 0 !important;
+		font-size: 18px !important;
+		padding: 13px !important;
+		box-shadow: none !important;
+		line-height: 10px !important;
+	}
+}
+
+
+.btn-pagination{
+
+	padding: 10px;
+	line-height: 10px;
+	margin: 0;
+	font-size: 22px;
+	background-color: rgba(0,0,0,0);
+
+	&:hover, &:focus, &:active, &:disabled, &:target{
+
+		font-size: 21px;
+		padding: 10px !important;
+		box-shadow: none;
+    	line-height: 10px;
+	}
+}
+
+.ic-gradient {
+	background: linear-gradient(to left, $claro 0%, $escuro 100%);
+	background: -moz-linear-gradient(right, $claro 0%, $escuro 100%);
+	background: -webkit-linear-gradient(right, $claro 0%, $escuro 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$claro, endColorstr=$escuro,GradientType=1 );
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}

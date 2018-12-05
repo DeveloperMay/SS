@@ -1,0 +1,39 @@
+/* AREA LOCALIZAÇÃO */
+.indx-box-localizacao {
+
+}
+
+.loca-map {
+	position: relative;
+	width: 100%;
+
+	& .loca-box{
+
+		position: absolute;
+		top: 10px;
+		left: 50%;
+		width: 90%;
+		max-width: 450px;
+		transform: translateX(-50%);
+		background-color: #ffffff;
+
+		& .loca-a {
+			display: inline-block;
+			width: 70px;
+			vertical-align: middle;
+
+			& img {
+				display: block;
+				width: 100%;
+			}
+		}
+
+		& .loca-b {
+			padding: 10px;
+			@include border-box;
+			display: inline-block;
+			width: calc(100% - 80px);
+			vertical-align: middle;
+		}
+	}
+}

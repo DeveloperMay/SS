@@ -1,0 +1,196 @@
+@mixin form-font(){
+	@extend .ho-txt;
+}
+
+@import 'input.scss';
+@import 'select.scss';
+@import 'slct.scss';
+@import 'checkbox.scss';
+@import 'check.scss';
+@import 'radio.scss';
+@import 'date.scss';
+
+/* ONFOCUS */
+.focus{
+	/*transform: translateY(-1px) !important;*/
+	box-shadow: 0px 2px 2px 1px rgba(0,0,0,0.2);
+	border-color: $inputBorderColorFocus;
+	z-index: 1;
+	transition: transform 0.15s ease;
+}
+.focus .boss-slct-label::after{
+	transform: rotate(180deg) !important;
+	transition: transform 0.15s ease;
+}
+.focus select + label::after{
+	transform: rotate(180deg) !important;
+	transition: transform 0.15s ease;
+}
+.focus .boss-slct-area{
+	border-color: $inputBorderColorFocus;
+}
+.focus label,
+.focus label::before,
+.focus div.boss-slct-label::before{
+	/*background-color: $inputBorderColorFocus;*/
+	color: #FFF !important;
+}
+.focus label::after,
+.focus div.boss-slct-label::after,
+.focus span{
+	color: #FFF !important;
+}
+
+/* CHECKBOX */
+.focus-checkbox input + label{
+	background-color: rgba(0,0,0,0) !important;
+	color: $inputBorderColorFocus !important;
+}
+.focus-checkbox input + label span{
+	border-color: $inputBorderColorFocus !important;
+}
+.focus-checkbox .boss-checkbox input + label span::before{
+	color: $inputBorderColorFocus !important;
+}
+.focus-checkbox input[type="radio"] + label span::before{
+	color: $inputBorderColorFocus !important;
+	background-color: $inputBorderColorFocus !important;
+}
+
+/* MOBILE */
+@mixin forms--mobile(){
+	.boss-input-text{
+	}
+	.boss-input-text input{
+	}
+	.boss-input-text i, .boss-input-text label{
+	}
+	.boss-input-textarea textarea{
+		font-size: $mobileTextSize;
+	}
+	/* INPUT COLOR */
+	.boss-input-text input[type="color"] + span{
+		font-size: $mobileTextSize;
+	}
+
+	/* SELECT */
+	.boss-select{
+		height: #{$inputHeight + $mobileIncrease}px;
+		min-width: #{$inputHeight + $mobileIncrease}px;
+	}
+	.boss-select select{
+		font-size: $mobileTextSize;
+		height: #{$inputHeight + $mobileIncrease - ($inputBorder * 2)}px;
+	}
+	.boss-select label{
+		width: #{$inputHeight + $mobileIncrease}px;
+	}
+	.boss-select label::before{
+		width: #{$inputHeight + $mobileIncrease}px;
+		line-height: #{$inputHeight + $mobileIncrease - ($inputBorder * 2)}px;
+		height: #{$inputHeight + $mobileIncrease - ($inputBorder * 2)}px;
+	}
+	.boss-select label::after{
+		width: #{$inputHeight + $mobileIncrease}px;
+		line-height: #{$inputHeight + $mobileIncrease - ($inputBorder * 2)}px;
+		height: #{$inputHeight + $mobileIncrease - ($inputBorder * 2)}px;
+	}
+
+	/* SLCT */
+	.boss-slct{
+		height: #{$inputHeight + $mobileIncrease}px;
+	}
+	.boss-slct-label{
+		line-height: #{$inputHeight + $mobileIncrease - ($inputBorder * 2)}px;
+		height: #{$inputHeight + $mobileIncrease - ($inputBorder * 2)}px;
+		font-size: $mobileTextSize;
+	}
+	.boss-slct ul li{
+		font-size: $mobileTextSize;
+		line-height: #{$inputHeight + $mobileIncrease - ($inputBorder * 2)}px;
+	}
+	.boss-slct-label::before{
+		width: #{$inputHeight + $mobileIncrease}px;
+		line-height: #{$inputHeight + $mobileIncrease - ($inputBorder * 2)}px;
+		height: #{$inputHeight + $mobileIncrease - ($inputBorder * 2)}px;
+	}
+	.boss-slct-label::after{
+		width: #{$inputHeight + $mobileIncrease}px;
+		line-height: #{$inputHeight + $mobileIncrease - ($inputBorder * 2)}px;
+		height: #{$inputHeight + $mobileIncrease - ($inputBorder * 2)}px;
+	}
+
+	/* CHECKBOX */
+	.boss-checkbox{
+		height: #{$inputHeight + $mobileIncrease}px;
+	}
+	.boss-checkbox label{
+		line-height: #{$inputHeight + $mobileIncrease - ($inputBorder * 2)}px;
+	}
+
+	/* RADIO */
+	.boss-radio{
+		height: #{$inputHeight + $mobileIncrease}px;
+	}
+	.boss-radio label{
+		line-height: #{$inputHeight + $mobileIncrease - ($inputBorder * 2)}px;
+	}
+}
+
+.input-red{
+	border-color: $colorDanger !important;
+}
+.input-red input{
+	color: $gray1 !important;
+}
+
+@mixin forms--large(){}
+
+/* 
+	MEDIUM SCREEN 
+	max-width: 1200px
+	min-width: 1024px
+*/
+@mixin forms--medium(){}
+/*
+	TABLET LANDSCAPE 
+	max-width: 1023px
+	min-width: 768px
+*/
+@mixin forms--tablet-landscape(){
+	@include forms--mobile();
+}
+/*
+	TABLET LANDSCAPE 
+	max-width: 767px
+	min-width: 641px
+*/
+@mixin forms--tablet-portrait(){
+	@include forms--mobile();
+}
+
+/*
+	SMARTPHONE LANDSCAPE
+	max-width: 640px
+	min-width: 482px
+*/
+@mixin forms--smart-landscape(){
+	@include forms--mobile();
+}
+
+/*
+	SMARTPHONE PORTRAIT
+	max-width: 481px
+	min-width: 321px
+*/
+@mixin forms--smart-portrait(){
+	@include forms--mobile();
+}
+
+/*
+	OLD SMARTPHONE
+	max-width: 320px
+*/
+@mixin forms--smart-old(){
+	@include forms--mobile();
+}

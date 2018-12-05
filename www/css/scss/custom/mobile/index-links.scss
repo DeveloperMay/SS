@@ -1,0 +1,23 @@
+/* AREA LINKS */
+.indx-box-links {
+
+	& .indx-box-links-img {
+		display: inline-block;
+		width: 50%;
+		vertical-align: middle;
+		padding: 10px;
+		@include border-box;
+		margin: auto;
+
+		& .indx-links-img {
+
+			display: block;
+			width: 100px;
+
+			& img {
+				display: block;
+				width: 100%;
+			}
+		}
+	}
+}

@@ -1,0 +1,108 @@
+#menu-mob {
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+	height: 100vh;
+
+	background-color: #ffffff;
+	z-index: 10;
+
+	& .mob-box-top {
+		position: relative;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 20px;
+		background-color: blue;
+	}
+
+	& .mob-box-menu{
+		display: block;
+		width: 100%;
+		height: calc(100vh - 50px);
+
+		overflow: auto;
+		position: absolute;
+		left: 50%;
+		@include transform(translateX(-50%));
+		padding: 20px;
+		@include border-box;
+
+		& .menu-mob-box{
+			display: block;
+			width: 100%;
+			padding: 10px 0;
+			@include border-box;
+			background-color: #ffffff;
+
+			&:hover {
+
+				background-color: (#fcfcfc - 5);
+			}
+
+			& .menu-mob-a {
+				display: inline-block;
+				width: 20px;
+				vertical-align: middle;
+
+				& img {
+					display: block;
+					width: 100%;
+				}
+			}
+
+			& .menu-mob-b {
+				display: inline-block;
+				width: calc(100% - 20px);
+				vertical-align: middle;
+				padding: 0 10px;
+				@include border-box;
+				color: $gray1;
+				@extend .ho-txt;
+			}
+		}
+	}
+}
+
+.menu-mob-open {
+	@include animation-duration(0.17s);
+	@include animation-name(mob_open);
+	@include animation-iteration-count(1);
+	@include animation-direction(mob_open);
+
+	animation-fill-mode: forwards;
+	animation-timing-function: ease-in-out;
+}
+@include keyframes(mob_open){
+	from {
+		top: -110vh;
+		right: -180vw;
+	}
+	to {
+		
+		top: 0;
+		right: 0;
+	}
+}
+.menu-mob-close {
+	@include animation-duration(0.17s);
+	@include animation-name(mob_close);
+	@include animation-iteration-count(1);
+	@include animation-direction(mob_close);
+
+	animation-fill-mode: forwards;
+	animation-timing-function: ease-in-out;
+}
+@include keyframes(mob_close){
+	from {
+		top: 0;
+		right: 0;
+	}
+	to {
+		top: -110vh;
+		right: -180vw;
+		display: none;
+	}
+}

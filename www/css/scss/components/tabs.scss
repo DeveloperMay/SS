@@ -1,0 +1,126 @@
+/* TABS VERTICAL */
+.boss-tabs-vertical ul{
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+.boss-tabs-vertical li{
+	position: relative;
+	cursor: pointer;
+	list-style: none;
+	margin: 0px;
+	padding: 10px 10px 10px 15px;
+	background-color: #FFF;
+	color: $textColor;
+	border-top: 1px solid $lineColor;
+	border-left: 2px solid $lineColor;
+	border-right: 1px solid $lineColor;
+	text-transform: uppercase;
+	@include border-box;
+}
+.boss-tabs-vertical li:last-child{
+	border-bottom: 1px solid $lineColor;
+}
+.boss-tabs-vertical li:hover{
+	background-color: $hoverColor;
+}
+.boss-tabs-vertical-area{
+	overflow: auto;
+	padding: 20px;
+	display: block;
+	width: 100%;
+	border: 1px solid $lineColor;
+	background-color: #FFF;
+	@include border-box;
+}
+.boss-tabs-vertical-active{
+	background-color: $activeColor !important;
+	font-weight: 600 !important;
+}
+.boss-tabs-vertical-active::before{
+	position: absolute;
+	top: 35%;
+	left: -4px;
+	display: block;
+	width: 0; 
+	height: 0;
+	content: "";
+	line-height: inherit;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-top: 8px solid $lineColor;
+	@include rotate(90deg);
+}
+
+/* TABS HORIZONTAL */
+.boss-tabs-horizontal ul{
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+.boss-tabs-horizontal-area{
+	overflow: auto;
+	padding: 20px;
+	display: block;
+	width: 100%;
+	border: 1px solid $lineColor;
+	background-color: #FFF;
+	@include border-box;
+}
+.boss-tabs-horizontal li{
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+	cursor: pointer;
+	list-style: none;
+	line-height: 1em;
+	color: $textColor;
+	margin: 0px 0px -1px 0px;
+	padding: 20px 20px 15px 20px;
+	border-top: 1px solid $lineColor;
+	border-color: $lineColor;
+	border-top-width: 2px;
+	font-weight: 300;
+	text-transform: uppercase;
+	z-index: 1;
+	@include border-box;
+}
+.boss-tabs-horizontal li:first-child{
+	border-left: 1px solid $lineColor;
+}
+.boss-tabs-horizontal li:last-child{
+	border-right: 1px solid $lineColor;
+}
+.boss-tabs-horizontal li:hover{
+	background-color: $hoverColor !important;
+}
+.boss-tabs-horizontal-active{
+	background-color: $activeColor !important;
+	font-weight: 600 !important;
+}
+.boss-tabs-horizontal-active::before{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	display: block;
+	width: 0; 
+	height: 0;
+	content: "";
+	line-height: inherit;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-top: 8px solid $lineColor;
+}
+
+@media all and (max-width: 800px){
+	.boss-tabs-horizontal li, .boss-tabs-horizontal li:first-child, .boss-tabs-horizontal li:last-child{
+		width: 100%;
+		border-color: $lineColor;
+		border-style: solid;
+		padding: 15px;
+		border-top-width: 1px !important;
+		border-bottom-width: 1px !important;
+		border-left-width: 1px !important;
+		border-right-width: 1px !important;
+	}
+}

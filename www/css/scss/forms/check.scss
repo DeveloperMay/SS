@@ -1,0 +1,146 @@
+/* CHECKBOX */
+.boss-check{
+	transform: translateX(0px);
+	transition: transform 0.15s ease;
+	font-family: inherit;
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	min-width: #{$inputHeight}px;
+	margin: 2px 0px 2px 0px;
+	padding-left: #{$inputPdLeft / 2}px;
+	padding-right: #{$inputPdRight / 2}px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+}
+.boss-check input{
+	position: absolute;
+	opacity: 0;
+	z-index: -1;
+	width: 1px;
+	height: 1px;
+}
+.boss-check label{
+	cursor: pointer;
+	display: inline-block;
+	vertical-align: middle;
+	width: 100%;
+	text-align: left;
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+}
+.boss-check label span{
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 10px;
+	width: #{$inputHeight - ($inputBorder * 2) - 6}px;
+	height: #{$inputHeight - ($inputBorder * 2)  - 6}px;
+	z-index: 1;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+}
+
+.boss-check input:checked + label{
+	font-weight: bold;
+}
+
+.boss-check input + label span::before{
+	position: absolute;
+	width: inherit;
+	top: 50%;
+	left: 50%;
+	display: block;
+	text-align: center;
+	content: "\e5ca" !important;
+	font-size: 1px;
+	font-family: 'icomoon' !important;
+	font-weight: normal;
+	opacity: 0;
+	transform: translateX(-50%) translateY(-50%);
+	animation: checkbox_out 0.3s;
+	animation-fill-mode: forwards;
+	transform-origin: center center;
+}
+.boss-check input:checked + label span::before{
+	font-weight: normal;
+	animation: checkbox_in 0.3s;
+	animation-fill-mode: forwards;
+	transform-origin: center center;
+
+}
+
+/* DISABLED */
+.boss-check input:disabled + label{
+	cursor: default !important;
+	color: $gray4 !important;
+}
+.boss-check input:disabled + label span{
+	border-color: $gray4 !important;
+}
+
+/* CUSTOM */
+.boss-check label{
+	padding: 10px 5px;
+	border: 1px solid $gray4;
+	font-size: 16px;
+	color: $colorSecondary;
+	background-color: $gray4;
+	font-weight: 500;
+}
+.boss-check label:hover{
+	background-color: $colorTerciary;
+}
+.boss-check input:checked + label{
+	font-weight: 600;
+	border: 1px solid $colorPrimary;
+	background-color: $colorPrimary;
+	color: $colorWhite;
+}
+.boss-check input:checked + label:hover{
+	background-color: $colorPrimary;
+}
+
+@keyframes checkbox_in{
+	0% {
+		opacity: 1;
+		transform: translateX(-50%) translateY(-50%);
+		font-size: 1px;
+	}
+	50%{
+		opacity: 1;
+		transform: translateX(-50%) translateY(-50%);
+		font-size: 28px;
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(-50%) translateY(-50%);
+		font-size: 20px;
+	}
+}
+@keyframes checkbox_out{
+	0% {
+		opacity: 1;
+		transform: translateX(-50%) translateY(-50%);
+		font-size: 20px;
+	}
+	100% {
+		opacity: 0;
+		transform: translateX(-50%) translateY(-50%);
+		font-size: 1px;
+	}
+}

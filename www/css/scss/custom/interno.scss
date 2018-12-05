@@ -1,0 +1,54 @@
+.ho-interno {
+	display: block;
+	width: 100%;
+
+	& h1 {
+		font-weight: 500;
+	}
+
+	& .ho-intern-box-img {
+		display: block;
+		width: 100%;
+		margin: auto;
+
+		& img {
+			display: block;
+			width: 100%;
+		}
+	}
+
+	& .he-inter-rede-box {
+
+		display: block;
+		padding: 10px 0;
+		@include border-box;
+		vertical-align: bottom;
+
+
+		& .he-inter-a {
+			display: inline-block;
+			vertical-align: middle;
+			width: 110px;
+			
+			color: $gray1;
+			font-size: 16px;
+			font-weight: 500;
+			padding: 10px 0;
+			@include border-box;
+
+		}
+
+		& .he-inter-b {
+			display: inline-block;
+			vertical-align: middle;
+			width: calc(100% - 110px);
+
+			& .hi-inter-redes {
+				display: inline-block;
+				vertical-align: bottom;
+				color: $gray1;
+			}
+		}
+
+	}
+}

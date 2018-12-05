@@ -1,0 +1,99 @@
+/* TOOLTIP */
+.boss-tooltip,
+.boss-tooltip-left,
+.boss-tooltip-bottom{
+	position: relative;
+}
+
+.boss-tooltip::before,
+.boss-tooltip-bottom::before,
+.boss-tooltip-left::before{
+	position: absolute;
+	z-index: 0;
+	left: 50%;
+	transform: translateX(-50%) translateY(-15px);
+	content: "";
+	opacity: 0;
+}
+.boss-tooltip:hover::before,
+.boss-tooltip-bottom:hover::before,
+.boss-tooltip-left:hover::before{
+	z-index: 99999;
+	opacity: 1;
+	border: solid;
+	border-color: $tooltipColor transparent;
+	border-width: 10px 10px 0px 10px;
+}
+.boss-tooltip::after,
+.boss-tooltip-bottom::after,
+.boss-tooltip-left::after{
+	position: absolute;
+	min-width: 80px;
+	max-width: 80vw;
+	z-index: 0;
+	left: 50%;
+	transform: translateX(-50%) translateY(calc(-100% - 15px));
+	content: "";
+	opacity: 0;
+	background-color: rgba(0,0,0,0);
+	font-size: 12px;
+}
+.boss-tooltip:hover::after,
+.boss-tooltip-bottom:hover::after,
+.boss-tooltip-left:hover::after{
+	content: attr(data-title);
+	z-index: 9999;
+	background-color: $tooltipColor;
+	opacity: 1;
+	min-width: 80px;
+	max-width: 80vw;
+	padding: 8px 10px;
+	line-height: normal;
+	font-size: 10px;
+	font-weight: 400;
+	color: #FFF;
+	text-align: center;
+	box-shadow: 0px 1px 2px 1px rgba(0,0,0,0.1);
+}
+
+/* BOTTOM */
+.boss-tooltip-bottom::before{
+	left: 50% !important;
+	bottom: 0 !important;
+	transform: translateX(-50%) translateY(15px) !important;
+}
+.boss-tooltip-bottom:hover::before{
+	border-color: transparent transparent $tooltipColor transparent !important;
+	border-width: 0px 10px 10px 10px !important;
+}
+.boss-tooltip-bottom::after,
+.boss-tooltip-bottom:hover::after{
+	left: 50% !important;
+	bottom: 0 !important;
+	transform: translateX(-50%) translateY(calc(100% + 15px)) !important;
+}
+
+/* LEFT */
+.boss-tooltip-left::before{
+	left: 0 !important;
+	top: 50% !important;
+	transform: translateX(calc(-100% - 10px)) translateY(-50%) !important;
+}
+.boss-tooltip-left:hover::before{
+	border-color: transparent transparent transparent $tooltipColor !important;
+	border-width: 10px 0px 10px 10px !important;
+	left: 0 !important;
+	top: 50% !important;
+	transform: translateX(calc(-100% - 10px)) translateY(-50%) !important;
+}
+.boss-tooltip-left::after{
+	left: 0 !important;
+	top: 50% !important;
+	transform: translateX(calc(-100% - 20px)) translateY(-50%) !important;
+}
+.boss-tooltip-left:hover::after{
+	padding: 10px !important;
+	left: 0 !important;
+	top: 50% !important;
+	transform: translateX(calc(-100% - 20px)) translateY(-50%) !important;
+}

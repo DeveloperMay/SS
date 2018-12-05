@@ -1,0 +1,126 @@
+/* CHECKBOX */
+.boss-checkbox{
+	transform: translateX(0px);
+	transition: transform 0.15s ease;
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	@include form-font();
+	height: #{$inputHeight}px;
+	min-width: #{$inputHeight}px;
+	margin: 2px 0px 2px 0px;
+	padding-left: #{$inputPdLeft / 2}px;
+	padding-right: #{$inputPdRight / 2}px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+}
+.boss-checkbox input{
+	position: absolute;
+	opacity: 0;
+	z-index: -1;
+	width: 1px;
+	height: 1px;
+}
+.boss-checkbox label{
+	cursor: pointer;
+	display: inline-block;
+	vertical-align: middle;
+	width: 100%;
+	font-size: $inputTextSize;
+	color: $inputTextColor;
+	text-align: left;
+	line-height: #{$inputHeight - ($inputBorder * 2)}px;
+	height: #{$inputHeight - ($inputBorder * 2)}px;
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+}
+.boss-checkbox label span{
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 10px;
+	width: #{$inputHeight - ($inputBorder * 2) - 6}px;
+	height: #{$inputHeight - ($inputBorder * 2)  - 6}px;
+	border: #{$inputBorderCheckbox}px solid #AAA;
+	border-radius: #{$inputBorderRadiusCheckbox}px;
+	z-index: 1;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+}
+
+.boss-checkbox input:checked + label{
+	font-weight: bold;
+}
+
+.boss-checkbox input + label span::before{
+	position: absolute;
+	width: inherit;
+	top: 50%;
+	left: 50%;
+	display: block;
+	text-align: center;
+	content: "\e5ca" !important;
+	font-size: 1px;
+	font-family: 'icomoon' !important;
+	font-weight: normal;
+	opacity: 0;
+	transform: translateX(-50%) translateY(-50%);
+	animation: checkbox_out 0.3s;
+	animation-fill-mode: forwards;
+	transform-origin: center center;
+}
+.boss-checkbox input:checked + label span::before{
+	font-weight: normal;
+	animation: checkbox_in 0.3s;
+	animation-fill-mode: forwards;
+	transform-origin: center center;
+
+}
+
+/* DISABLED */
+.boss-checkbox input:disabled + label{
+	cursor: default !important;
+	color: $gray4 !important;
+}
+.boss-checkbox input:disabled + label span{
+	border-color: $gray4 !important;
+}
+
+@keyframes checkbox_in{
+	0% {
+		opacity: 1;
+		transform: translateX(-50%) translateY(-50%);
+		font-size: 1px;
+	}
+	50%{
+		opacity: 1;
+		transform: translateX(-50%) translateY(-50%);
+		font-size: 28px;
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(-50%) translateY(-50%);
+		font-size: 20px;
+	}
+}
+@keyframes checkbox_out{
+	0% {
+		opacity: 1;
+		transform: translateX(-50%) translateY(-50%);
+		font-size: 20px;
+	}
+	100% {
+		opacity: 0;
+		transform: translateX(-50%) translateY(-50%);
+		font-size: 1px;
+	}
+}

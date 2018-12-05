@@ -1,0 +1,91 @@
+
+/* RADIO */
+.boss-comp-radio{
+	position: absolute;
+	opacity: 0;
+	z-index: 1;
+}
+.boss-comp-radio + label{
+	cursor: pointer;
+	padding-right: 10px;
+	display: inline-block;
+	height: 20px;
+	line-height: 20px;
+	position: relative;
+	z-index: 2;
+}
+.boss-comp-radio-span{
+	position: relative;
+	display: block;
+	float: left;
+	margin-right: 10px;
+	width: 20px;
+	height: 20px;
+	border: 1px solid #AAA;
+	border-radius: 50%;
+	z-index: 1;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+}
+.boss-comp-radio-span::after{
+	display: block;
+	position: absolute;
+	bottom: 4px;
+	left: 4px;
+	background-color: rgba(0,0,0,0);
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	z-index: 3;
+	content: '';
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-webkit-animation: all 0.15s ease-in-out;
+	-moz-animation: all 0.15s ease-in-out;
+	-o-animation: all 0.15s ease-in-out;
+	-ms-animation: all 0.15s ease-in-out;
+	animation: all 0.15s alternate;
+	-webkit-transition: all 0.15s ease-in-out;
+	-moz-transition: all 0.15s ease-in-out;
+	-o-transition: all 0.15s ease-in-out;
+	-ms-transition: all 0.15s ease-in-out;
+	transition: all 0.15s ease-in-out;
+}
+.boss-comp-radio:checked + label span.boss-comp-radio-span::after{
+	background-color: #333;
+	-webkit-animation: all 0.15s ease-in-out;
+	-moz-animation: all 0.15s ease-in-out;
+	-o-animation: all 0.15s ease-in-out;
+	-ms-animation: all 0.15s ease-in-out;
+	animation: all 0.15s alternate;
+	-webkit-transition: all 0.15s ease-in-out;
+	-moz-transition: all 0.15s ease-in-out;
+	-o-transition: all 0.15s ease-in-out;
+	-ms-transition: all 0.15s ease-in-out;
+	transition: all 0.15s ease-in-out;
+}
+.boss-comp-radio:checked + label{
+	font-weight: 600;
+}
+.boss-comp-radio:checked + label::after{
+	display: block;
+	position: absolute;
+	background-color: #333;
+	width: 25px;
+	height: 3px;
+	z-index: 3;
+}
+.boss-comp-radio:disabled + label{
+	cursor: default !important;
+}
+.boss-comp-radio:disabled + label span.boss-comp-radio-span{
+	background-color: #F4F4F4 !important;
+	cursor: default !important;
+	border: 2px solid #CCC !important;
+}

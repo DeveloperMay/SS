@@ -1,0 +1,113 @@
+/* MENU */
+nav {
+
+	padding: 20px;
+	padding-bottom: 0;
+	@include border-box;
+
+	margin: auto;
+	max-width: 500px;
+
+	/* BOX LOGO */
+	& .m-box-logo {
+		display: inline-block;
+		width: calc(100% - 70px);
+		vertical-align: top;
+
+		& .m-box-img{
+
+			display: block;
+			width: 160px;
+			margin: 0;
+		}
+
+		& img {
+			display: block;
+			width: 100%;
+		}
+	}
+
+	/* BOX BOTÃO MENU */
+	& .m-box-menu {
+		display: inline-block;
+		width: 60px;
+		vertical-align: top;
+		text-align: right;
+
+		& button img {
+			display: block;
+			width: 100%;
+		}
+	}
+}
+
+$velNav: 0.25s;
+/* MENU FIXO */
+.nav-menu{
+	display: block;
+	width: 100%;
+
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	background-color: #F4F4F4;
+	z-index: 10;
+
+	& .nav-menu-m{
+		text-align: center;
+		display: inline-block;
+		width: 25%;
+		padding: 5px;
+		@include border-box;
+
+		& i{
+			color: $gray1;
+		}
+		& .nav-n{
+			padding-top: 5px;
+			display: block;
+			font-size: 12px;
+			color: $gray1;
+			font-weight: 500;
+
+			@include border-box;
+		}
+	}
+}
+
+.nav_open {
+	@include animation-duration($velNav);
+	@include animation-name(nav_open);
+	@include animation-iteration-count(1);
+	@include animation-direction(nav_open);
+
+	animation-fill-mode: forwards;
+	animation-timing-function: ease-in-out;
+}
+@include keyframes(nav_open){
+	from {
+		bottom: -100px;
+	}
+	to {
+		bottom: 0;
+	}
+}
+
+.nav_close {
+	@include animation-duration($velNav);
+	@include animation-name(nav_close);
+	@include animation-iteration-count(1);
+	@include animation-direction(nav_close);
+
+	animation-fill-mode: forwards;
+	animation-timing-function: ease-in-out;
+}
+@include keyframes(nav_close){
+	from {
+		bottom: 0;
+	}
+	to {
+		bottom: -100px;
+	}
+}
