@@ -44,7 +44,7 @@ class Index {
 	function index(){
 
 		$mustache = array();
-		$this->metas['title'] = 'Início - '.$_SESSION['login'][LOG_CODIGO]['log_nome'];
+		$this->metas['title'] = 'Início';
 
 		if($this->_push === false){
 

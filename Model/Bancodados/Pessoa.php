@@ -8,7 +8,7 @@
 		"VERSION":"0.0.1"
 	}
 */
-class Model_Bancodados_Pessoa extends Model_Bancodados_Disciplina {
+class Model_Bancodados_Pessoa {
 
 	function _getPessoa($pes_codigo){
 

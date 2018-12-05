@@ -83,8 +83,8 @@ class Model_Layout extends Model_View{
 			$noscript = '';
 		}
 
-		$meta_title = $metas['title'] ?? 'SS';
-		$meta_description = $metas['description'] ?? 'Criação de site responsivo, criação de site em Marau-RS, criação de site exclusivo, Webdesign em Marau, Webdesign, desenvolvimento web, site fácil';
+		$meta_title = $metas['title'] ?? 'SS - Fotos';
+		$meta_description = $metas['description'] ?? 'Publique suas fotos instantaneamente, mostre para o mundo !';
 
 		$header = <<<php
 <title>{$meta_title}</title>

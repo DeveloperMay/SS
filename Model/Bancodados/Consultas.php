@@ -54,8 +54,6 @@ class Model_Bancodados_Consultas extends Model_Bancodados_Login {
 
 		$this->_render = new Model_Functions_Render;
 
-		$this->_grid = new Model_Grid;
-
 		$url = $this->_url->url();
 
 		$this->_controlador = $url[1] ?? '';
@@ -70,11 +68,11 @@ class Model_Bancodados_Consultas extends Model_Bancodados_Login {
 		if(isset($url[1]) and $url[1] !== 'login'){
 
 			/* SE NÃO TIVER SESSAO LOGIN, CAI FORA */
-			if(!isset($_SESSION['login']) and empty($_SESSION['login'])){
+			/*if(!isset($_SESSION['login']) and empty($_SESSION['login'])){
 
-				/* PRECISA ESTAR LOGADO PARA ENTRAR NO SISTEMA */
+				 PRECISA ESTAR LOGADO PARA ENTRAR NO SISTEMA 
 				header('location: /login');
-			}
+			}*/
 
 			/* SE EXISTIR A SESSÃO, VERIFICA SE EXISTE O DADO NO DB, SE NÃO TIVER LIMPA A SESSION */
 			if(isset($_SESSION['login'])){
