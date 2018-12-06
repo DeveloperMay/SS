@@ -1,3 +1,65 @@
+@function rem($a: '', $b: '', $c: '', $d: ''){
+
+	/* $fontSizeBody 	= 16px, 20px, ... precisa do px;*/
+	/* $a, $b, $c e $d  = 16px, 20px, ... precisa do px;*/
+
+	@if $a != ''{
+
+		@if( $a > 0){
+
+			$a: #{$a / $fontSizeBody}rem;
+
+		} @else {
+
+			$a: #{($a / $fontSizeBodyNegativo) * -1}rem;
+ 			@warn #{$a};
+		}
+	}
+
+	@if $b != ''{
+
+		@if( $b > 0){
+
+			$b: #{$b / $fontSizeBody}rem;
+		} @else {
+
+			$b: #{($b / $fontSizeBodyNegativo) * -1}rem;
+ 			@warn #{$b};
+		}
+	}
+
+	@if $c != ''{
+
+		@if( $c > 0){
+
+			$c: #{$c / $fontSizeBody}rem; 
+		
+		} @else {
+
+			$c: #{($c / $fontSizeBodyNegativo) * -1}rem;
+ 			@warn #{$c};
+		}
+	}
+
+	@if $d != ''{
+
+		@if( $d > 0){
+
+			$d: #{$d / $fontSizeBody}rem;
+
+		} @else {
+
+			$d: #{($d / $fontSizeBodyNegativo) * -1}rem;
+ 			@warn #{$d};
+		}
+	}
+
+	$resultado: #{$a} #{$b} #{$c} #{$d};
+
+	@return $resultado;
+
+}
+
 @mixin font-size{
 
 	/* Exemplo <p class="font24"></p> */

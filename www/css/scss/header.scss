@@ -1,13 +1,14 @@
 /* SCROLL-BAR */
-::-webkit-scrollbar{width: 10px; height: 10px;}
+::-webkit-scrollbar{width: rem(10px); height: rem(10px);}
 ::-webkit-scrollbar-track-piece{background-color: #FFF;}
-::-webkit-scrollbar-thumb:vertical{height: 10px; background-color: $gray1;}
-::-webkit-scrollbar-thumb:horizontal{width: 10px; background-color: $gray1;}
+::-webkit-scrollbar-thumb:vertical{height: rem(10px); background-color: $gray1;}
+::-webkit-scrollbar-thumb:horizontal{width: rem(10px); background-color: $gray1;}
 ::-ms-clear {width: 0; height: 0;}
 ::-ms-reveal {width: 0; height: 0;}
 
 html{
 	width: 100%;
+	font-size: $fontSizeBody;
 	touch-action: pan-y;
 	-ms-touch-action: pan-y;
 }
@@ -17,36 +18,38 @@ body{
 	background-color: #fdfdfd;
 	color: $gray2;
 	font-weight: 200;
-	font-size: 18px;
+	font-size: $fontSizeBody;
 	margin: 0;
 	touch-action: pan-y;
 	-ms-touch-action: pan-y;
 }
 
 h1, .h1{
-	font-size: 22px;
+	@include border-box;
+	font-size: rem(22px);
 	font-weight: 700;
-	line-height: 1.1em;
+	line-height: rem(22px);
 	padding: 0;
-	margin: 20px 0px 20px 0px;
+	position: relative;
+	top: rem(-20px);
+	margin: rem(20px, 0px, 20px, 0px);
 	color: $colorTerciary;
 }
-
 h2, .h2{
-	font-size: 22px;
+	font-size: rem(22px);
 	font-weight: 600;
-	line-height: 1.1em;
+	line-height: rem(22px);
 	padding: 0;
-	margin: 20px 0px 20px 0px;
+	margin: rem(20px, 0px, 20px, 0px);
 	color: $colorTerciary;
 }
 
 h3, .h3{
-	font-size: 18px;
+	font-size: rem(18px);
 	font-weight: 600;
-	line-height: 1.1em;
+	line-height: rem(18px);
 	padding: 0;
-	margin: 20px 0px 20px 0px;
+	margin: rem(20px, 0px, 20px, 0px);
 }
 
 a{
@@ -59,24 +62,24 @@ a{
 }
 
 div{
-	line-height: 1em;
+	line-height: rem(16px);
 	margin: auto;
 }
 
 p{
 	font-weight: 300;
 	color: $gray1;
-	line-height: 1.4em;
-	margin: 10px 0;
-	font-size: 13px;
+	line-height: rem(13px);
+	margin: rem(10px, 0px);
+	font-size: rem(13px);
 }
 
 #push-loader{
 	position: fixed;
-	top: 0px;
+	top: rem(0px);
 	background-color: $colorWhite;
 
-	height: 3px;
+	height: rem(3px);
 	display: table;
 	width: 0%;
 	z-index: 9999;
@@ -86,19 +89,19 @@ p{
 	@include transition(all .25s ease-in-out);
 }
 .push-loader{
-	max-width: 5px;
+	max-width: rem(5px);
 	width: 100%;
 	background-color: $colorWhite;
-	height: 3px;
+	height: rem(3px);
 	position: absolute;
-	right: 0px;
+	right: rem(0px);
 }
 .header{
 	display: block;
 	background-color: $gray3;
 
 	 & .box-header{
-		padding: 40px 0;
+		padding: rem(40px, 0px);
 		@include border-box;
 	}
 }
