@@ -12,7 +12,7 @@
 	padding-right: #{$btnPdRight}px;
 	padding-top: 0;
 	padding-bottom: 0;
-	margin: 2px 0px 2px 0px;
+	margin: rem(2px, 0px, 2px, 0px);
 	background-color: $gray4;
 	color: $gray1;
 	font-size: #{$btnFont}px;
@@ -187,9 +187,9 @@
 	/* BOX SHADOW ONLY ON FOCUS */
 	.#{$prefix}-#{$name}:focus, a.#{$prefix}-#{$name}:focus{
 		@if $a == rgba(0,0,0,0) {
-			box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.4);
+			@include box-shadow(rem(0px, 0px, 1px, 1px) rgba(0,0,0,0.4));
 		} @else {
-			box-shadow: 0px 0px 1px 1px ($a + #303030);
+			@include box-shadow(rem(0px, 0px, 1px, 1px) ($a + #303030));
 		}
 	}
 }
@@ -280,156 +280,6 @@
 @include make-button('pag', $transparent, $gray1, $transparent, 0);
 @include make-button-hover('pag', $transparent, $gray1, $transparent, 0);
 @include make-button-active('pag', $transparent, $gray1, $transparent, 0);
-
-
-.btn-flat{
-
-	line-height: 36px !important;
-	font-size: 12px !important;
-	padding-right: 10px !important;
-	padding-left: 10px !important;
-	&:hover, &:focus, &:active, &:disabled, &:target{
-
-		padding-right: 10px !important;
-		padding-left: 10px !important;
-		font-size: 12px !important;
-		line-height: 36px !important;
-	}
-}
-
-
-.btn-primary{
-	@include border-radius(30px);
-
-	background: -webkit-gradient(linear, left top, right top, from($claro), to($escuro)) no-repeat;
-	background: -moz-linear-gradient(left, $claro, $escuro);
-	filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=1, StartColorStr=$claro, EndColorStr=$escuro);
-
-	&:hover {
-
-		$escuroM : ($escuro - 10);
-		background: -webkit-gradient(linear, left top, right top, from($claro), to($escuroM)) no-repeat;
-		background: -moz-linear-gradient(left, $claro, $escuroM);
-		filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=1, StartColorStr=$claro, EndColorStr=$escuroM);
-	}
-}
-
-.btn-menu{
-
-	padding: 15px;
-	font-size: 25px;
-	background-color: rgba(0,0,0,0);
-	@include box-shadow(none);
-	line-height: 50px;
-
-	&:hover, &:focus, &:active, &:disabled, &:target{
-
-		padding: 15px !important;
-		font-size: 25px;
-		background-color: rgba(0,0,0,0);
-		@include box-shadow(none);
-		line-height: 50px;
-	}
-}
-
-.btn-imagem{
-
-	line-height: 10px;
-
-	background-color: rgba(0,0,0,0);
-	@include box-shadow(none);
-	padding: 0 !important;
-	margin: 0 !important;
-
-	&:hover, &:focus, &:active, &:disabled, &:target{
-
-		padding: 0 !important;
-		margin: 0 !important;
-    	line-height: 10px;
-		@include box-shadow(none);
-	}
-}
-
-.btn-nav{
-
-	padding: 13px;
-	line-height: 12px;
-	margin: 0;
-	font-size: 22px;
-	background-color: rgba(0,0,0,0);
-	box-shadow: none;
-
-	&:hover, &:focus, &:active, &:disabled, &:target{
-
-		padding: 13px;
-		line-height: 12px;
-		margin: 0;
-		font-size: 22px;
-		box-shadow: none;
-		background-color: rgba(0,0,0,0);
-	}
-}
-
-a.btn-pag{
-
-	display: inline !important;
-	font-size: 22px !important;
-	background-color: rgba(0,0,0,0) !important;
-	box-shadow: none !important;
-
-	color: $gray2 !important;
-	@include border-radius(50%);
-	&:hover, &:focus, &:active, &:disabled, &:target{
-
-		color: $gray2 !important;
-		display: inline !important;
-		font-size: 22px !important;
-		background-color: rgba(0,0,0,0) !important;
-		box-shadow: none !important;
-	}
-}
-a.btn-pag-ativo {
-
-	color: $colorPrimary !important;
-}
-
-.btn-share{
-
-	padding: 13px !important;
-	line-height: 12px !important;
-	margin: 0 !important;
-	font-size: 18px !important;
-	background-color: rgba(0,0,0,0) !important;
-	color: $gray1;
-
-	&:hover, &:focus, &:active, &:disabled, &:target{
-
-		color: $colorPrimary;
-		margin: 0 !important;
-		font-size: 18px !important;
-		padding: 13px !important;
-		box-shadow: none !important;
-		line-height: 10px !important;
-	}
-}
-
-
-.btn-pagination{
-
-	padding: 10px;
-	line-height: 10px;
-	margin: 0;
-	font-size: 22px;
-	background-color: rgba(0,0,0,0);
-
-	&:hover, &:focus, &:active, &:disabled, &:target{
-
-		font-size: 21px;
-		padding: 10px !important;
-		box-shadow: none;
-    	line-height: 10px;
-	}
-}
 
 .ic-gradient {
 	background: linear-gradient(to left, $claro 0%, $escuro 100%);

@@ -1,6 +1,7 @@
 @import 'variaveis.scss';
-@import 'font.scss';
 @import 'function/function.scss';
+@import 'components.scss';
+@import 'font.scss';
 
 @import 'boss.scss';
 
@@ -9,8 +10,5 @@
 @import 'site.scss';
 @import 'footer.scss';
 @import 'button.scss';
-@import 'components.scss';
-@import 'ui/gallery.scss';
-@import 'forms/forms.scss';
 @import 'custom/custom.scss';
 @import 'media-queries.scss';

@@ -2,30 +2,38 @@
 <html lang="pt-br">
 	{{header}}
 	<body>
-		<nav class="nav">
-			<div class="nav-nav">
-				<div class="box-nav-logo">
-				</div>
-				<div class="box-nav-box">
-					<div class="box-nav-busca">
-						<input type="text" name="" placeholder="pesquisar pessoas, fotos, perfis, etc..">
-					</div>
-					<div class="box-nav-criar">
-						Criar sua conta
-					</div>
-					<div class="box-nav-entrar">
-						Entrar
-					</div>
-				</div>
-			</div>
-		</nav>
 		{{menu}}
 		<main>
 			{{visao}}
 		</main>
-		<footer>
-			<div>
-				<div>Todos os direitos reservados</div><div>· {{ano}} © {{dominio_site}}</div>
+		<footer class="content content_v content_h content_m">
+			<div class="block v-middle width-50">
+				<div class="block pd-right-10">
+					<a href="#">Categorias</a>
+				</div>
+
+				<div class="block pd-center-10">
+					<a href="#">Mais visitados</a>
+				</div>
+
+				<div class="block pd-center-10">
+					<a href="#">Termos</a>
+				</div>
+
+				<div class="block pd-center-10">
+					<a href="#">Regras</a>
+				</div>
+
+				<div class="block pd-center-10">
+					<a href="#">Privacidade</a>
+				</div>
+
+				<div class="block pd-left-10">
+					<a href="#">Ajuda</a>
+				</div>
+			</div>
+			<div class="block v-middle width-50">
+				<p class="text-right">{{ano}} <strong>{{dominio_site}}</strong> · Todos os direitos reservados</p>
 			</div>
 		</footer>
 		<div id="box-progress"></div>

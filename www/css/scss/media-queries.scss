@@ -1,62 +1,51 @@
 /* LARGE SCREEN */
-@media all and (min-width: 1201px) and (max-width: 1370px){
+@media all and (min-width: rem(1201px)) and (max-width: rem(1370px)){
 	@include header--large();
 	@include content--large();
 	@include site--large();
-	@include forms--large();
 	@include footer--large();
 }
 /* MEDIUM SCREEN */
-@media all and (min-width: 1024px) and (max-width: 1200px){
+@media all and (min-width: rem(1024px)) and (max-width: rem(1200px)){
 	@include header--medium();
 	@include content--medium();
 	@include site--medium();
-	@include forms--medium();
 	@include footer--medium();
 }
 /* TABLET LANDSCAPE */
-@media all and (min-width: 768px) and (max-width: 1023px){
+@media all and (min-width: rem(768px)) and (max-width: rem(1023px)){
 	@include header--tablet-landscape();
 	@include content--tablet-landscape();
 	@include site--tablet-landscape();
-	@include forms--tablet-landscape();
 	@include footer--tablet-landscape();
 }
 /* TABLET PORTRAIT */
-@media all and (min-width: 641px) and (max-width: 767px){
+@media all and (min-width: rem(641px)) and (max-width: rem(767px)){
 	@include header--tablet-portrait();
 	@include content--tablet-portrait();
 	@include site--tablet-portrait();
-	@include forms--tablet-portrait();
 	@include footer--tablet-portrait();
 }
 
 /* SMARTPHONE LANDSCAPE */
-@media all and (min-width: 482px) and (max-width: 640px){
+@media all and (min-width: rem(482px)) and (max-width: rem(640px)){
 	@include header--smart-landscape();
 	@include content--smart-landscape();
 	@include site--smart-landscape();
-	@include forms--smart-landscape();
 	@include footer--smart-landscape();
 }
 
 /* SMARTPHONE PORTRAIT */
-@media all and (min-width: 321px) and (max-width: 481px){
+@media all and (min-width: rem(321px)) and (max-width: rem(481px)){
 	@include header--smart-portrait();
 	@include content--smart-portrait();
 	@include site--smart-portrait();
-	@include forms--smart-portrait();
 	@include footer--smart-portrait();
 }
 /* OLD SMARTPHONE */
-@media all and (max-width: 320px){
-	@include plano--smart-old();
-	@include duvidas--smart-old();
-	@include reajuste--smart-old();
-	@include informativo--smart-old();
+@media all and (max-width: rem(320px)){
 	@include header--smart-old();
 	@include content--smart-old();
 	@include site--smart-old();
-	@include forms--smart-old();
 	@include footer--smart-old();
 }

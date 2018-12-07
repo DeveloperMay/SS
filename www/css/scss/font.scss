@@ -1,55 +1,54 @@
 @font-face {
-	font-family: 'WebFont';
-	src: url('/css/font/WebFont-ExtraLight.woff2') format('woff2'),
-		url('/css/font/WebFont-ExtraLight.woff') format('woff');
-	font-weight: 200;
-	font-style: normal;
+ font-family:'WebFont';
+ src:url("/css/font/black-webfont.woff") format("woff"),url("/css/font/black-webfont.woff2") format("woff2");
+ font-weight:900;
+ font-style:normal
 }
-
 @font-face {
-	font-family: 'WebFont';
-	src: url('/css/font/WebFont-Medium.woff2') format('woff2'),
-		url('/css/font/WebFont-Medium.woff') format('woff');
-	font-weight: 500;
-	font-style: normal;
+ font-family:'WebFont';
+ src:url("/css/font/extrabold-webfont.woff") format("woff"),url("/css/font/extrabold-webfont.woff2") format("woff2");
+ font-weight:800;
+ font-style:normal
 }
-
 @font-face {
-	font-family: 'WebFont';
-	src: url('/css/font/WebFont-Black.woff2') format('woff2'),
-		url('/css/font/WebFont-Black.woff') format('woff');
-	font-weight: 900;
-	font-style: normal;
+ font-family:'WebFont';
+ src:url("/css/font/bold-webfont.woff") format("woff"),url("/css/font/bold-webfont.woff2") format("woff2");
+ font-weight:700;
+ font-style:normal
 }
-
 @font-face {
-	font-family: 'WebFont';
-	src: url('/css/font/WebFont-Light.woff2') format('woff2'),
-		url('/css/font/WebFont-Light.woff') format('woff');
-	font-weight: 300;
-	font-style: normal;
+ font-family:'WebFont';
+ src:url("/css/font/semibold-webfont.woff") format("woff"),url("/css/font/semibold-webfont.woff2") format("woff2");
+ font-weight:600;
+ font-style:normal
 }
-
 @font-face {
-	font-family: 'WebFont';
-	src: url('/css/font/WebFont-Regular.woff2') format('woff2'),
-		url('/css/font/WebFont-Regular.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
+ font-family:'WebFont';
+ src:url("/css/font/medium-webfont.woff") format("woff"),url("/css/font/medium-webfont.woff2") format("woff2");
+ font-weight:500;
+ font-style:normal
 }
-
 @font-face {
-	font-family: 'WebFont';
-	src: url('/css/font/WebFont-Bold.woff2') format('woff2'),
-		url('/css/font/WebFont-Bold.woff') format('woff');
-	font-weight: bold;
-	font-style: normal;
+ font-family:'WebFont';
+ src:url("/css/font/regular-webfont.woff") format("woff"),url("/css/font/regular-webfont.woff2") format("woff2");
+ font-weight:400;
+ font-style:normal
 }
-
 @font-face {
-	font-family: 'WebFont';
-	src: url('/css/font/WebFont-ExtraBold.woff2') format('woff2'),
-		url('/css/font/WebFont-ExtraBold.woff') format('woff');
-	font-weight: 800;
-	font-style: normal;
+ font-family:'WebFont';
+ src:url("/css/font/light-webfont.woff") format("woff"),url("/css/font/light-webfont.woff2") format("woff2");
+ font-weight:300;
+ font-style:normal
+}
+@font-face {
+ font-family:'WebFont';
+ src:url("/css/font/extralight-webfont.woff") format("woff"),url("/css/font/extralight-webfont.woff2") format("woff2");
+ font-weight:200;
+ font-style:normal
+}
+@font-face {
+ font-family:'WebFont';
+ src:url("/css/font/thin-webfont.woff") format("woff"),url("/css/font/thin-webfont.woff2") format("woff2");
+ font-weight:100;
+ font-style:normal
 }

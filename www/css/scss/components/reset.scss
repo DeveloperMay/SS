@@ -1,8 +1,8 @@
 /* SCROLL-BAR */
-::-webkit-scrollbar{width: 10px; height: 10px;}
+::-webkit-scrollbar{width: rem(10px); height: rem(10px);}
 ::-webkit-scrollbar-track-piece{background-color: #EEE;}
-::-webkit-scrollbar-thumb:vertical{height: 5px; background-color: #222;}
-::-webkit-scrollbar-thumb:horizontal{width: 5px; background-color: #222;}
+::-webkit-scrollbar-thumb:vertical{height: rem(5px); background-color: #222;}
+::-webkit-scrollbar-thumb:horizontal{width: rem(5px); background-color: #222;}
 ::-ms-clear {width: 0; height: 0;}
 ::-ms-reveal {width: 0; height: 0;}
 
@@ -27,7 +27,7 @@ select:-moz-focusring{
 a, a:visited{
 	color: $colorSecondary !important;
 	font-weight: 600;
-	font-size: 12px;
+	font-size: rem(16px);
 	text-decoration: none;
 	outline: 0;
 }
@@ -47,17 +47,17 @@ table{
 }
 table td{
 	vertical-align: top;
-	padding: 5px;
+	padding: rem(5px);
 	word-wrap: break-word;
 }
 select{
 	background-image: none;
 	background-color: #FFF;
 	outline: none;
-	border: 1px solid #CCC;
-	height: 30px;
-	padding: 0 0 0 5px;
-	font-size: 0.9em;
+	border: rem(1px) solid #CCC;
+	height: rem(30px);
+	padding: rem(0px, 0px, 0px, 5px);
+	font-size: rem(16px);
 	color: #666;
 	box-shadow: none;
 	@include appearance(none);
@@ -76,22 +76,21 @@ input, button, textarea{
 }
 blockquote{
 	background: rgba(0,0,0,0);
-	margin: 1.5em 10px;
-	padding: 1.5em 10px;
+	margin: rem(16px, 10px);
+	padding: rem(16px, 10px);
 	quotes: "\201C""\201D";
 }
 blockquote:before{
 	color: #CCC;
 	content: open-quote;
-	font-size: 5em;
-	line-height: .1em;
-	margin-right: .25em;
-	vertical-align: -.4em;
+	font-size: rem(20px);
+	line-height: rem(14px);
+	margin-right: rem(16px);
 }
 blockquote p{
 	display:inline;
-	line-height: 30px !important;
-	font-size: 1.5em;
+	line-height: rem(30px) !important;
+	font-size: rem(16px);
 }
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder{
@@ -110,11 +109,11 @@ textarea:-o-placeholder{
 	color: #AAA;
 }
 fieldset{
-	border: 1px solid #AAA;
+	border: rem(1px) solid #AAA;
 	margin: 0;
 }
 hr{
-	height: 3px;
+	height: rem(3px);
 	border: none;
 	background-color: rgba(241, 241, 241, 1);
 }
