@@ -11,8 +11,8 @@
 
 
 
-$local = 'casa';
-define('BANCO_DADOS', 'mysql');
+$local = 'objetiva';
+define('BANCO_DADOS', 'psql');
 
 
 

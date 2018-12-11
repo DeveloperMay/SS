@@ -57,7 +57,7 @@ class Model_Layout extends Model_View{
 				'{{lang}}'			=> $this->_url,
 				'{{ano}}'			=> date('Y'),
 				'{{dominio_site}}'	=> DOMINIO_SITE,
-				'{{menu}}'			=> $this->_navi()
+				'{{menu}}'			=> ''
 			);
 
 			$layout = str_replace(array_keys($mustache), array_values($mustache), file_get_contents(DIR_CLASS.DIR.'Layout/'.$layout.EXTENSAO_VISAO));
@@ -106,9 +106,6 @@ class Model_Layout extends Model_View{
 <link rel="manifest" href="/manifest.json"/>
 <link rel="shortcut icon" href="/img/site/caveira.png" type="image/x-icon">
 <link rel="icon" href="/img/site/caveira.png" type="image/x-icon">
-<script src="/js/MS.min.js{{cache}}"></script>
-<script defer src="/js/site.min.js{{cache}}"></script>
-<link rel="stylesheet" type="text/css" href="/css/basico.min.css{{cache}}">
 php;
 
 		return $header;

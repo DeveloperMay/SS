@@ -12,10 +12,6 @@ class Abigor {
 
 	private $_cor;
 
-	private $_consulta;
-
-	private $_conexao;
-
 	private $_push = false;
 
 	private $_url;
@@ -27,10 +23,6 @@ class Abigor {
 	function __construct(){
 
 		$this->_cor = new Model_GOD;
-
-		$this->_conexao = new Model_Bancodados_Conexao;
-
-		$this->_consulta = new Model_Bancodados_Consultas($this->_conexao);
 
 		if(isset($_POST['push']) and $_POST['push'] == 'push'){
 			$this->_push = true;
