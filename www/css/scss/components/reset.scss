@@ -1,3 +1,32 @@
+
+.abigor-title {
+	font-size: rem(21px);
+	line-height: 1.4em;
+	font-weight: 600;
+	color: $gray1;
+}
+
+.abigor-subtitle {
+	font-size: rem(19px);
+	line-height: 1.4em;
+	font-weight: 400;
+	color: $gray1;
+}
+
+.abigor-txt {
+	font-size: rem(17px);
+	line-height: 1.4em;
+	font-weight: 200;
+	color: $gray1;
+}
+
+.abigor-mini {
+	font-size: rem(15px);
+	line-height: 1.4em;
+	font-weight: 100;
+	color: $gray1;
+}
+
 /* SCROLL-BAR */
 ::-webkit-scrollbar{width: rem(10px); height: rem(10px);}
 ::-webkit-scrollbar-track-piece{background-color: #EEE;}
@@ -37,7 +66,7 @@ a:active, a:hover, a:focus{
 	color: ($colorSecondary - 30) !important;
 }
 p{
-	text-align: left;
+	@extend .abigor-txt;
 }
 img{
 	border: 0;
@@ -49,6 +78,15 @@ table td{
 	vertical-align: top;
 	padding: rem(5px);
 	word-wrap: break-word;
+}
+ul, ol, li {
+	padding-left: 10px;
+	@include border-box;
+	margin: 0;
+	@include border-box;
+	text-decoration: none;
+	@extend .abigor-txt;
+
 }
 select{
 	background-image: none;

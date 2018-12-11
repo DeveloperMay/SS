@@ -94,42 +94,7 @@ p{
 	position: absolute;
 	right: rem(0px);
 }
-.header{
-	display: block;
-	background-color: $gray3;
 
-	 & .box-header{
-		padding: rem(40px, 0px);
-		@include border-box;
-	}
-}
-
-.box-laterais{
-	vertical-align: top;
-	position: relative;
-	margin-left: rem(-10px);
-	margin-right: rem(-10px);
-	width: 100%;
-}
-.box-changeMobile{
-	margin: auto;
-	max-width: rem(500px);
-
-	& a{
-		padding: rem(0px, 10px);
-		@include border-box;
-	}
-
-	& .chageClose{
-		padding: rem(0px, 10px);
-		@include border-box;
-	}
-}
-@media all and (min-width: rem(1024px)) {
-	h1, .h1 {
-		color: $colorPrimary;
-	}
-}
 /*
 	LARGE SCREEN 
 	max-width: 1370px

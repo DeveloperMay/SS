@@ -1,6 +1,7 @@
 /* BOSS */
 @import 'components/reset.scss';
 
+@include box-lateral;
 @include width;
 @include site-space;
 @include max;
