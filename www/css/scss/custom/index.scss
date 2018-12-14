@@ -1,39 +1,24 @@
-.box-padrao{
-	padding: 15px;
-	background-color: #FFFFFF;
-	@include border-radius(7px);
-	@include box-shadow($shadowBox);
-	@include border-box;
-
-	&:hover, &:active {
-		@include box-shadow($shadowBoxHover);
-	}
-}
-.box-padrao-pc {
-	@extend .box-padrao;
-	padding: 30px;
-}
-.ho-title{
+.abigor-title{
 	color: $gray1;
 	font-weight: 400;
-	font-size: 15px;
+	font-size: rem(15px);
 	line-height: 1.4em;
 }
-.ho-txt{
+.abigor-txt{
 	color: $gray1;
 	font-weight: 300;
-	font-size: 13px;
+	font-size: rem(13px);
 	line-height: 1.4em;
 }
-.ho-mini{
+.abigor-mini{
 	color: $gray2;
 	font-weight: 300;
-	font-size: 11px;
+	font-size: rem(11px);
 	line-height: 1.4em;
 }
 .flow{
 	overflow: hidden;
-	max-height: 58px;
+	max-height: rem(58px);
 }
 .box-editor{
 	display: block;
@@ -76,114 +61,20 @@
 	}
 
 }
-.box-back {
 
-	& a {
-
-		color: $gray1 !important;
-		font-weight: 400;
-		font-size: 14px;
-	}
-}
-.box-img-ans{
-	display: block;
-	width: 120px;
-	margin: 0;
-
-	& img {
-		display: block;
-		width: 100%;
-	}
-}
-.ho-pagination{
-	
-	display: block;
-	width: 100%;
-
-	& .ho-acao {
-		display: inline-block;
-		vertical-align: middle;
-	}
-
-	& .ho-pag{
-
-		display: inline-block;
-		width: calc(100% - 66px);
-		vertical-align: middle;
-
-		& .ho-overflow{
-			position: relative;
-			display: block;
-			overflow-x: hidden;
-			height: 90px;
-			
-			& .ho-smooth-left{
-				display: block;
-				position: absolute;
-				height: 80px;
-				width: 2px;
-				background-color: red;
-				top: 0;
-				left: 0;
-				z-index: 2;
-
-				@include gradient('right, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%');
-			}
-			
-			& .ho-smooth-right{
-
-				display: block;
-				position: absolute;
-				height: 0px;
-				width: 2px;
-				background-color: red;
-				top: 0;
-				right: 0;
-				z-index: 2;
-
-				@include gradient('right, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%');
-
-			}
-
-			& .ho-overflow-size{
-				display: block;
-				position: absolute;
-				left: 0;
-				top: 20px;
-				z-index: 1;
-				@include user-select(none);
-			}
-		}
-
-	}
-}
-
-@import 'mobile/index-menu.scss';
-@import 'mobile/index-planos.scss';
-@import 'mobile/index-duvidas.scss';
-@import 'mobile/index-reajustes.scss';
-@import 'mobile/index-informativo.scss';
-@import 'mobile/index-localizacao.scss';
-@import 'mobile/index-links.scss';
-@import 'mobile/index-centralatendimento.scss';
-@import 'pc/header-pc.scss';
-@import 'pc/index-planos-pc.scss';
-@import 'pc/index-duvidas-pc.scss';
-@import 'pc/index-reajustes-pc.scss';
-@import 'pc/index-informativo-pc.scss';
-@import 'resultados-busca.scss';
+@import 'pc/conta-pc.scss';
 
 @media all and (min-width: 1024px) {
 	.ho-title{
-		font-size: 19px !important;
+		font-size: rem(19px) !important;
 		line-height: 1.4em !important;
 	}
 	.ho-txt{
-		font-size: 17px !important;
+		font-size: rem(17px) !important;
 		line-height: 1.4em !important;
 	}
 	.ho-mini{
-		font-size: 15px !important;
+		font-size: rem(15px) !important;
 		line-height: 1.4em !important;
 	}
 }

@@ -1,72 +1,112 @@
 <!DOCTYPE html>
-<html>
-<head>
-<title>Facebook Login JavaScript Example</title>
-<meta charset="UTF-8">
-</head>
-<body>
-<script>
-  function statusChangeCallback(response) {
-    console.log('statusChangeCallback');
-    console.log(response);
-    if (response.status === 'connected') {
-      testAPI();
-    } else {
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into this app.';
-    }
-  }
+<html lang="pt-br">
+	{{header}}
+	<body>
+		<script>
+			
+			function statusChangeCallback(response) {
+				console.log('statusChangeCallback');
+				console.log(response);
+				if (response.status === 'connected') {
+					testAPI();
+				} else {
+					document.getElementById('status').innerHTML = 'Please log ' +
+						'into this app.';
+				}
+			}
 
-  function checkLoginState() {
-    FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
-    });
-  }
+			function checkLoginState() {
+				FB.getLoginStatus(function(response) {
+					statusChangeCallback(response);
+				});
+			}
+			
+			window.fbAsyncInit = function() {
+				FB.init({
+					appId: '2036746776607565',
+					cookie: true,
+					xfbml: true,
+					version: 'v2.8'
+				}
+			);
 
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId: '2036746776607565',
-      cookie: true,
-      xfbml: true,
-      version: 'v2.8'
-    }
-  );
+				FB.getLoginStatus(function(response) {
+					statusChangeCallback(response);
+				});
 
-    FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
-    });
+			};
 
-  };
+			(function(d, s, id) {
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) return;
+				js = d.createElement(s); js.id = id;
+				js.src = "https://connect.facebook.net/en_US/sdk.js";
+				fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
 
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "https://connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
+			function testAPI() {
+				console.log('Welcome!	Fetching your information.... ');
+				FB.api('/me', function(response) {
+					console.log('Successful login for: ' + response.name);
+					document.getElementById('status').innerHTML =
+						'Thanks for logging in, ' + response.name + '!';
+				});
+			}
+		</script>
+		{{menu}}
+		<nav class="nav">
+			<div class="max1280 d-block">
+				<div class="nav-logo">
+					<div class="box-img">
+						<img src="/img/logo/logo.png" alt="Imagem" />
+					</div>
+				</div>
+				<div class="nav-nav">
+					<div>Cadastro</div>
+				</div>
+			</div>
+			
+		</nav>
+		<main>
+			{{visao}}
+		</main>
+		<footer class="content content_v content_h content_m">
+			<div class="block v-middle width-50">
+				<div class="block pd-right-10">
+					<a href="#">Categorias</a>
+				</div>
 
-  function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
-      console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
-    });
-  }
-</script>
+				<div class="block pd-center-10">
+					<a href="#">Mais visitados</a>
+				</div>
 
-<!--
-  Below we include the Login Button social plugin. This button uses
-  the JavaScript SDK to present a graphical Login button that triggers
-  the FB.login() function when clicked.
--->
+				<div class="block pd-center-10">
+					<a href="/abigor/termos">Termos</a>
+				</div>
 
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
+				<div class="block pd-center-10">
+					<a href="/abigor/regras">Regras</a>
+				</div>
 
-<div id="status">
-</div>
+				<div class="block pd-center-10">
+					<a href="/abigor/privacidade">Privacidade</a>
+				</div>
 
-</body>
+				<div class="block pd-left-10">
+					<a href="#">Ajuda</a>
+				</div>
+			</div>
+			<div class="block v-middle width-50">
+				<p class="text-right">{{ano}} <strong>{{dominio_site}}</strong> · Todos os direitos reservados</p>
+			</div>
+			<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+			</fb:login-button>
+
+			<div id="status">
+			</div>
+		</footer>
+		<div id="box-progress"></div>
+		<link rel="stylesheet" type="text/css" href="/css/icons/all.min.css{{cache}}">
+		<link rel="stylesheet" type="text/css" href="/css/site.min.css{{cache}}">
+	</body>
 </html>

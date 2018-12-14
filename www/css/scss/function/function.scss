@@ -12,7 +12,7 @@
 		} @else {
 
 			$a: #{($a / $fontSizeBodyNegativo) * -1}rem;
- 			@warn #{$a};
+ 			//@warn #{$a};
 		}
 	}
 
@@ -24,7 +24,7 @@
 		} @else {
 
 			$b: #{($b / $fontSizeBodyNegativo) * -1}rem;
- 			@warn #{$b};
+ 			//@warn #{$b};
 		}
 	}
 
@@ -37,7 +37,7 @@
 		} @else {
 
 			$c: #{($c / $fontSizeBodyNegativo) * -1}rem;
- 			@warn #{$c};
+ 			//@warn #{$c};
 		}
 	}
 
@@ -50,7 +50,7 @@
 		} @else {
 
 			$d: #{($d / $fontSizeBodyNegativo) * -1}rem;
- 			@warn #{$d};
+ 			//@warn #{$d};
 		}
 	}
 

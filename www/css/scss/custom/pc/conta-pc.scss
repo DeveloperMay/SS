@@ -1,0 +1,36 @@
+.conta {
+	
+	& .conta-box-img{
+		display: inline-block;
+		width: rem(200px);
+		padding-right: rem(30px);
+		margin: 0;
+		@include border-box;
+		vertical-align: top;
+		@extend .block;
+
+
+		& .conta-box-img-circle {
+
+			display: block;
+			padding: rem(5px);
+			border: rem(1px) solid $colorSecondary;
+			@include border-box;
+			@include border-radius(50%);
+
+		}
+
+		& img {
+			display: block;
+			width: 100%;
+			@include border-radius(50%);
+		}
+	}
+
+	& .conta-box-perfil {
+		display: inline-block;
+		width: calc(100% - #{rem(200px)});
+		vertical-align: top;
+		@extend .block;
+	}
+}

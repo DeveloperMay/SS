@@ -105,7 +105,7 @@ gulp.task('site', function(cb){
 gulp.task('dev', function() {
   connect.server({}, function (){
    browserSync.init({
-        proxy: 'http://192.168.1.155:80/'
+        proxy: 'http://abigor.local:80/'
       });
     });
 

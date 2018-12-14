@@ -2219,7 +2219,9 @@
     }
   },
   "devDependencies": {
+    "gulp": "^3.9.1",
     "gulp-livereload": "^3.8.1",
-    "gulp-notify": "^3.2.0"
+    "gulp-notify": "^3.2.0",
+    "gulp-sass": "^3.2.1"
   }
 }

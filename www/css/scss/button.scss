@@ -84,8 +84,8 @@
 }
 
 .#{$prefix}:hover, .#{$prefix}:focus, a.#{$prefix}:hover, a.#{$prefix}:focus{
-	background-color: ($gray4 - #101010);
-	color: ($gray1 - #101010);
+	background-color: $gray4;
+	color: $gray1;
 	border-color: (#{$gray3} - #101010);
 	transition: background .15s cubic-bezier(0.45, 0, 0.95, 0.5), 
 		border .15s cubic-bezier(0.45, 0, 0.95, 0.5), 
@@ -98,9 +98,9 @@
 	font-weight: $btnFontWeight;
 }
 .#{$prefix}:active, a.#{$prefix}:active{
-	background-color: ($gray4 - #202020);
-	color: ($gray1 - #202020);
-	border-color: (#{$gray3} - #202020);
+	background-color: $gray4;
+	color: $gray1;
+	border-color: $gray3;
 	transition: background .15s cubic-bezier(0.45, 0, 0.95, 0.5), 
 		border .15s cubic-bezier(0.45, 0, 0.95, 0.5), 
 		color .15s linear, 
@@ -112,8 +112,8 @@
 	font-weight: $btnFontWeight;
 }
 .#{$prefix}:disabled, .#{$prefix}:disabled:hover, .#{$prefix}-disabled, .#{$prefix}-disabled:hover, .#{$prefix}-disabled:focus, .#{$prefix}-disabled:active{
-	background-color: ($gray4 + #101010) !important;
-	color: ($gray3 - #101010) !important;
+	background-color: $gray4 !important;
+	color: $gray3 !important;
 	cursor: default !important;
 	border: #{$btnBorder}px solid #{$gray4} !important;
 	padding-top: 0 !important;
@@ -140,7 +140,7 @@
 		@if $c == rgba(0,0,0,0) {
 			border-color: rgba(0,0,0,0);
 		} @else {
-			border-color: ($c - #101010);
+			border-color: ($c - 10);
 		}
 
 		@if $d > 0 {
@@ -159,19 +159,19 @@
 		@if $a == rgba(0,0,0,0) {
 			background-color: rgba(0,0,0,0);
 		} @else {
-			background-color: ($a - #101010);
+			background-color: ($a - 10);
 		}
 
 		@if $b == rgba(0,0,0,0) {
 			color: rgba(0,0,0,0);
 		} @else {
-			color: ($b + #101010);
+			color: ($b + 10);
 		}
 
 		@if $c == rgba(0,0,0,0) {
 			border-color: rgba(0,0,0,0);
 		} @else {
-			border-color: ($c - #252525);
+			border-color: ($c - 25);
 		}
 
 		@if $d > 0 {
@@ -200,7 +200,7 @@
 		@if $a == rgba(0,0,0,0) {
 			background-color: rgba(0,0,0,0);
 		} @else {
-			background-color: ($a - #101010);
+			background-color: ($a - 10);
 		}
 
 		@if $b == rgba(0,0,0,0) {
@@ -212,7 +212,7 @@
 		@if $c == rgba(0,0,0,0) {
 			border-color: rgba(0,0,0,0);
 		} @else {
-			border-color: ($c - #303030);
+			border-color: ($c - 30);
 		}
 
 		@if $d > 0 {
@@ -226,60 +226,6 @@
 }
 
 /* BUTTON GENERATOR */
-
-/* MENU */
-@include make-button('menu', $transparent, $transparent, $transparent, 0);
-@include make-button-hover('menu', $transparent, $transparent, $transparent, 0);
-@include make-button-active('menu', $transparent, $transparent, $transparent, 0);
-
-/* IMAGENS */
-@include make-button('imagem', $transparent, $transparent, $transparent, 0);
-@include make-button-hover('imagem', $transparent, $transparent, $transparent, 0);
-@include make-button-active('imagem', $transparent, $transparent, $transparent, 0);
-
-/* NAV */
-@include make-button('nav', $transparent, $gray1, $transparent, 0);
-@include make-button-hover('nav', $transparent, $gray1, $transparent, 0);
-@include make-button-active('nav', $transparent, $gray1, $transparent, 0);
-
-/* SHARE */
-@include make-button('share', $transparent, $gray1, $transparent, 0);
-@include make-button-hover('share', $transparent, $gray1, $transparent, 0);
-@include make-button-active('share', $transparent, $gray1, $transparent, 0);
-
-
-
-
-
-
-/* FLAT */
-@include make-button('flat', $transparent, $colorPrimary, $gray4, 1);
-@include make-button-hover('flat', $transparent, $colorPrimary, $gray3, 1);
-@include make-button-active('flat', $transparent, $colorPrimary, $gray3, 1);
-
-
-
-
-
-
-
-
-
-
-/* PAGINATION */
-@include make-button('pagination', $transparent, $colorPrimary, $transparent, 0);
-@include make-button-hover('pagination', $transparent, $colorPrimary, $transparent, 0);
-@include make-button-active('pagination', $transparent, $colorPrimary, $transparent, 0);
-
-/* PRIMARY */
-@include make-button('primary', rgba(0,0,0,0), $colorWhite, $transparent, 0);
-@include make-button-hover('primary', rgba(0,0,0,0), $colorWhite, $transparent, 0);
-@include make-button-active('primary', rgba(0,0,0,0), $colorWhite, $transparent, 0);
-
-/* PAG */
-@include make-button('pag', $transparent, $gray1, $transparent, 0);
-@include make-button-hover('pag', $transparent, $gray1, $transparent, 0);
-@include make-button-active('pag', $transparent, $gray1, $transparent, 0);
 
 .ic-gradient {
 	background: linear-gradient(to left, $claro 0%, $escuro 100%);
