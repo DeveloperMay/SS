@@ -2,16 +2,37 @@
 	<div class="conta">
 		<div class="conta-box-img">
 			<div class="conta-box-img-circle">			
-				<img src="/img/user/1.jpg" alt="User" />
+				<img id="img-perfil" src="/" alt="User" />
 			</div>
 		</div>
 		<div class="conta-box-perfil">
-			<h1 class="abigor-title">Matheus_Maydana</h1>
+			<h1 class="abigor-title" id="user-nome">Matheus_Maydana</h1>
 			<div class="block width-33-3 abigor-txt"><b>04</b> publicacoes</div>
 			<div class="block width-33-3 abigor-txt"><b>374</b> amiguinhos</div>
 			<div class="block width-33-3 abigor-txt"><b>77</b> fans</div>
 		</div>
-
-
 	</div>
 </div>
+
+<script>
+	if(ME.perfil !== ''){
+		document.getElementById('img-perfil').src = ME.perfil;
+	}
+
+	if(ME.nome !== ''){
+		
+		document.getElementById('user-nome').innerHTML = ME.nome;
+	}
+
+	
+  document.addEventListener("DOMContentLoaded", function(event) {
+   if(ME.perfil !== ''){
+		document.getElementById('img-perfil').src = ME.perfil;
+	}
+
+	if(ME.nome !== ''){
+		
+		document.getElementById('user-nome').innerHTML = ME.nome;
+	}
+  });
+</script>

@@ -156,7 +156,7 @@ var xhrfn = function(controler, doneCallFn){
 
 	XHRPopState = Boss.ajax({
 		'url': controler,
-		'data': {'metodo': 'ajax'},
+		'data': {'push': 'push'},
 		'dataType': 'json',
 		'done': function(rtn){
 

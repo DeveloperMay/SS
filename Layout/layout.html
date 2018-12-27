@@ -4,22 +4,20 @@
 	<body>
 		<script>
 			
-			function statusChangeCallback(response) {
-				console.log('statusChangeCallback');
-				console.log(response);
+			window.statusChangeCallback = function(response) {
 				if (response.status === 'connected') {
 					testAPI();
 				} else {
 					document.getElementById('status').innerHTML = 'Please log ' +
 						'into this app.';
 				}
-			}
+			};
 
-			function checkLoginState() {
+			window.checkLoginState = function() {
 				FB.getLoginStatus(function(response) {
 					statusChangeCallback(response);
 				});
-			}
+			};
 			
 			window.fbAsyncInit = function() {
 				FB.init({
@@ -45,14 +43,48 @@
 			}(document, 'script', 'facebook-jssdk'));
 
 			function testAPI() {
-				console.log('Welcome!	Fetching your information.... ');
+
 				FB.api('/me', function(response) {
-					console.log('Successful login for: ' + response.name);
-					document.getElementById('status').innerHTML =
-						'Thanks for logging in, ' + response.name + '!';
+
+					/* USUÁRIO JÁ LOGADO VIA FACEBOOK */
+					if(window.location.pathname == '/login'){
+
+						Boss.pushstate.goXHR('/conta', xhrfn, lockChangePageFn);
+					}
+
+					/* RECUPERA A IMAGEM DE PERFIL */
+					FB.api(
+						'/'+response.id+'/picture?redirect=false&type=large',
+						'GET',
+						{},
+						function(res) {
+							ME.perfil = res.data.url;
+						}
+					);
+
+
+					ME.nome = response.name;
+					ME.id = response.id;
 				});
+				
 			}
 		</script>
+
+		<script>
+			window.ME = {
+				nome: '',
+				id: '',
+				perfil: '',
+			};
+			var jsdominio = 'https://objetivasoftware.com.br',
+				lockExitMessage = '',
+				XHRPopState,
+				XHRPopLastController = '/',
+				XHRPopStateScroll = {},
+				lockChangePageFn = false,
+				XHRPopStateShowStatus = true;
+		</script>
+		<div id="push-loader"></div>
 		{{menu}}
 		<nav class="nav">
 			<div class="max1280 d-block">
@@ -62,12 +94,13 @@
 					</div>
 				</div>
 				<div class="nav-nav">
-					<div>Cadastro</div>
+					<div><a href="/login">Login</a></div>
+					<div><a href="/conta">Conta</a></div>
 				</div>
 			</div>
 			
 		</nav>
-		<main>
+		<main id="content">
 			{{visao}}
 		</main>
 		<footer class="content content_v content_h content_m">
@@ -99,14 +132,13 @@
 			<div class="block v-middle width-50">
 				<p class="text-right">{{ano}} <strong>{{dominio_site}}</strong> · Todos os direitos reservados</p>
 			</div>
-			<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-			</fb:login-button>
 
-			<div id="status">
-			</div>
+			<div id="status"></div>
 		</footer>
 		<div id="box-progress"></div>
 		<link rel="stylesheet" type="text/css" href="/css/icons/all.min.css{{cache}}">
 		<link rel="stylesheet" type="text/css" href="/css/site.min.css{{cache}}">
+		<script type="text/javascript" src="/js/boss.min.js"></script>
+		<script type="text/javascript" src="/js/site.min.js"></script>
 	</body>
 </html>
