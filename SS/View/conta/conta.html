@@ -11,6 +11,10 @@
 			<div class="block width-33-3 abigor-txt"><b>374</b> amiguinhos</div>
 			<div class="block width-33-3 abigor-txt"><b>77</b> fans</div>
 		</div>
+
+
+		<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="true" data-auto-logout-link="true" data-use-continue-as="true"></div>
+	
 	</div>
 </div>
 
@@ -25,14 +29,15 @@
 	}
 
 	
-  document.addEventListener("DOMContentLoaded", function(event) {
-   if(ME.perfil !== ''){
-		document.getElementById('img-perfil').src = ME.perfil;
-	}
+ 	document.addEventListener("DOMContentLoaded", function(event) {
 
-	if(ME.nome !== ''){
-		
-		document.getElementById('user-nome').innerHTML = ME.nome;
-	}
-  });
+	   if(ME.perfil !== ''){
+			document.getElementById('img-perfil').src = ME.perfil;
+		}
+
+		if(ME.nome !== ''){
+
+			document.getElementById('user-nome').innerHTML = ME.nome;
+		}
+	});
 </script>

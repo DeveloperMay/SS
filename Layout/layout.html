@@ -3,7 +3,11 @@
 	{{header}}
 	<body>
 		<script>
-			
+			window.ME = {
+				nome: '',
+				id: '',
+				perfil: '',
+			};
 			window.statusChangeCallback = function(response) {
 				if (response.status === 'connected') {
 					testAPI();
@@ -25,9 +29,10 @@
 					cookie: true,
 					xfbml: true,
 					version: 'v2.8'
-				}
-			);
+				});
 
+				fbLoaded.resolve();
+				
 				FB.getLoginStatus(function(response) {
 					statusChangeCallback(response);
 				});
@@ -68,14 +73,21 @@
 				});
 				
 			}
+
+		window.Deferred = function(){
+			var self = this;
+		
+			this.promise = new Promise(function(resolve, reject){
+				self.reject = reject;
+				self.resolve = resolve;
+			});
+		};
+
+		window.fbLoaded = (new Deferred());
+
 		</script>
 
 		<script>
-			window.ME = {
-				nome: '',
-				id: '',
-				perfil: '',
-			};
 			var jsdominio = 'https://objetivasoftware.com.br',
 				lockExitMessage = '',
 				XHRPopState,
@@ -83,6 +95,7 @@
 				XHRPopStateScroll = {},
 				lockChangePageFn = false,
 				XHRPopStateShowStatus = true;
+
 		</script>
 		<div id="push-loader"></div>
 		{{menu}}
