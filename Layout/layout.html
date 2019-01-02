@@ -3,7 +3,7 @@
 	{{header}}
 	<body>
 		<script>
-			window.ME = {
+			/*window.ME = {
 				nome: '',
 				id: '',
 				perfil: '',
@@ -52,13 +52,13 @@
 				FB.api('/me', function(response) {
 
 					/* USUÁRIO JÁ LOGADO VIA FACEBOOK */
-					if(window.location.pathname == '/login'){
+					/*if(window.location.pathname == '/login'){
 
 						Boss.pushstate.goXHR('/conta', xhrfn, lockChangePageFn);
 					}
 
 					/* RECUPERA A IMAGEM DE PERFIL */
-					FB.api(
+					/*FB.api(
 						'/'+response.id+'/picture?redirect=false&type=large',
 						'GET',
 						{},
@@ -84,18 +84,7 @@
 		};
 
 		window.fbLoaded = (new Deferred());
-
-		</script>
-
-		<script>
-			var jsdominio = 'https://objetivasoftware.com.br',
-				lockExitMessage = '',
-				XHRPopState,
-				XHRPopLastController = '/',
-				XHRPopStateScroll = {},
-				lockChangePageFn = false,
-				XHRPopStateShowStatus = true;
-
+*/
 		</script>
 		<div id="push-loader"></div>
 		{{menu}}
@@ -107,6 +96,13 @@
 					</div>
 				</div>
 				<div class="nav-nav">
+
+
+					<a href="/abigor/termos">Termos</a>
+					<a href="/abigor/regras">Regras</a>
+
+				<div class="block pd-center-10">
+					<a href="/abigor/privacidade">Privacidade</a>
 					<div><a href="/login">Login</a></div>
 					<div><a href="/conta">Conta</a></div>
 				</div>
@@ -151,7 +147,7 @@
 		<div id="box-progress"></div>
 		<link rel="stylesheet" type="text/css" href="/css/icons/all.min.css{{cache}}">
 		<link rel="stylesheet" type="text/css" href="/css/site.min.css{{cache}}">
-		<script type="text/javascript" src="/js/boss.min.js"></script>
-		<script type="text/javascript" src="/js/site.min.js"></script>
+		<script type="text/javascript" src="/js/a.min.js"></script>
+		<script type="text/javascript" src="/js/push.min.js"></script>
 	</body>
 </html>

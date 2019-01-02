@@ -30,6 +30,7 @@ class Erro404 {
 		$mustache = array();
 
 		$this->metas['title'] = 'Página não encontrada - SS';
+		$this->metas['description'] = 'ERRO 404 - Pagina não encontrada!';
 
 		if($this->_push === false){
 

@@ -101,6 +101,21 @@ gulp.task('site', function(cb){
     //.pipe(notify({ title:projeto+' - Desenvolvimento', message: msg}))
 });
 
+gulp.task('push', function(cb){
+  // Função compila o SITE.JS com Map para Debugar
+  return gulp.src(contate_site)
+    .pipe(sourcemaps.init())
+    .pipe(concat('push.min.js'))
+    .pipe(sourcemaps.write('./map'))
+    .pipe(gulp.dest('js'))
+      .pipe(reload({ stream:true }))
+      .on('error', function(err) {
+         /// notify().write(err);
+          done(erro); 
+      })
+    //.pipe(notify({ title:projeto+' - Desenvolvimento', message: msg}))
+});
+
 
 gulp.task('dev', function() {
   connect.server({}, function (){
@@ -115,6 +130,8 @@ gulp.task('dev', function() {
 
     gulp.watch(['css/scss/**/*.scss'],['scss']);
     gulp.watch('js/js/boss/boss.js', ['boss']);
+    gulp.watch('js/js/a/a.js', ['a']);
+    gulp.watch('js/js/push/push.js', ['push']);
     gulp.watch('js/js/**.js', ['site']);
 });
 
@@ -148,6 +165,32 @@ gulp.task('scss_producao', function(){
       //.pipe(notify({ title:projeto+' - Produção', message: msg }));
 });
 
+gulp.task('a_producao', function(cb){
+  // Função compila o BOSS.JS SEM Map para produção
+  return gulp.src('js/js/a/a.js')
+    .pipe(uglify())
+    .pipe(rename('a.min.js'))
+    .pipe(gulp.dest('js'))
+    .on('error', function(err) {
+        notify().write(err);
+        this.emit('end');
+    })
+    //.pipe(notify({ title:projeto+' - Produção', message: msg }));
+});
+
+gulp.task('push_producao', function(cb){
+  // Função compila o BOSS.JS SEM Map para produção
+  return gulp.src('js/js/push/push.js')
+    .pipe(uglify())
+    .pipe(rename('push.min.js'))
+    .pipe(gulp.dest('js'))
+    .on('error', function(err) {
+        notify().write(err);
+        this.emit('end');
+    })
+    //.pipe(notify({ title:projeto+' - Produção', message: msg }));
+});
+
 gulp.task('boss_producao', function(cb){
   // Função compila o BOSS.JS SEM Map para produção
   return gulp.src('js/js/boss/boss.js')
@@ -174,6 +217,34 @@ gulp.task('site_producao', function(cb){
     //.pipe(notify({ title:projeto+' - Produção', message: msg }));
 });
 
+gulp.task('a', function(cb){
+  // Função compila o BOSS.JS com Map para Debugar
+  return gulp.src('js/js/a/a.js')
+    .pipe(sourcemaps.init())
+    .pipe(rename('a.min.js'))
+    .pipe(sourcemaps.write('./map'))
+    .pipe(reload({ stream:true }))
+    .pipe(gulp.dest('js'))
+    .on('error', function(err) {
+        notify().write(err);
+        this.emit('end');
+    })
+    //.pipe(notify({ title:projeto+' - Desenvolvimento', message: msg }));
+});
+gulp.task('push', function(cb){
+  // Função compila o BOSS.JS com Map para Debugar
+  return gulp.src('js/js/push/push.js')
+    .pipe(sourcemaps.init())
+    .pipe(rename('push.min.js'))
+    .pipe(sourcemaps.write('./map'))
+    .pipe(reload({ stream:true }))
+    .pipe(gulp.dest('js'))
+    .on('error', function(err) {
+        notify().write(err);
+        this.emit('end');
+    })
+    //.pipe(notify({ title:projeto+' - Desenvolvimento', message: msg }));
+});
 gulp.task('boss', function(cb){
   // Função compila o BOSS.JS com Map para Debugar
   return gulp.src('js/js/boss/boss.js')
@@ -220,6 +291,8 @@ gulp.task('default', function() {
     gulp.watch(['css/scss/**/*.scss'],['scss']);
     gulp.watch('css/icones/icones.css',['icones']);
     gulp.watch('js/js/boss/boss.js', ['boss']);
+    gulp.watch('js/js/a/a.js', ['a']);
+    gulp.watch('js/js/push/push.js', ['push']);
     gulp.watch('js/js/**.js', ['site']);
 });
 
@@ -230,6 +303,8 @@ gulp.task('css', function() {
 
 gulp.task('js', function() {
   gulp.watch('js/js/boss/boss.js', ['boss']);
+  gulp.watch('js/js/a/a.js', ['a']);
+  gulp.watch('js/js/push/push.js', ['push']);
   gulp.watch('js/js/**.js', ['site']);
 });
 
@@ -237,5 +312,7 @@ gulp.task('producao', function() {
   gulp.watch('css/scss/**/*.scss',['scss_producao']);
   gulp.watch('css/icones/icones.css',['icones_producao']);
   gulp.watch('js/js/boss/boss.js', ['boss_producao']);
+  gulp.watch('js/js/a/a.js', ['a_producao']);
+  gulp.watch('js/js/push/push.js', ['push_producao']);
   gulp.watch('js/js/**.js', ['site_producao']);
 });

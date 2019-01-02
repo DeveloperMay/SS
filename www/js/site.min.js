@@ -1,3 +1,165 @@
+window.push = {
+	jsdominio: 'https://objetivasoftware.com.br',
+	lockExitMessage: '',
+	XHRPopState,
+	XHRPopLastController: '/',
+	XHRPopStateScroll: {},
+	lockChangePageFn: false,
+	XHRPopStateShowStatus: true,
+	pushstate: {
+		init: function(configObj){
+
+			history.scrollRestoration = 'manual';
+
+			var xhrfn = function(){};
+			var lockChangePageFn = function(){};
+			var lockExitMessage = '';
+
+			if(typeof(configObj.xhrfn) === 'function'){
+				xhrfn = configObj.xhrfn;
+			}
+
+			if(typeof(configObj.lockChangePageFn) === 'function'){
+				lockChangePageFn = configObj.lockChangePageFn;
+			}
+
+			if(configObj.lockExitMessage){
+				lockExitMessage = configObj.lockExitMessage;
+			}
+
+			/* POPSTATE EVENT */
+			Boss.evts.add('popstate', window, function(evts){
+
+				if(lockChangePage === true){
+					lockChangePageFn(window.location.href);
+					return false;
+				}
+
+				var host = window.location.protocol+'//'+window.location.host;
+				var controler = window.location.href.replace(host, '')+'!popstate';
+				xhrfn(controler, function(){});
+
+			});
+
+			/* CLICK EVENTS */
+			Boss.evts.add('click', document, function(evts){
+
+				var elemt = Boss.targt(evts);
+
+				var expJs = new RegExp('javascript:', 'i');
+				var expFTP = new RegExp('ftp:', 'i');
+				var expMail = new RegExp('mailto:', 'i');
+				var expWhatsapp = new RegExp('whatsapp:', 'i');
+
+				var domain = window.location.hostname;
+
+				if(elemt.parentElement !== null && elemt.nodeName !== 'BUTTON' && elemt.parentElement.nodeName === 'BUTTON'){
+					elemt = elemt.parentElement;
+				}
+
+				if(elemt.nodeName === 'BUTTON' && elemt.getAttribute('data-href') && elemt.getAttribute('data-href') !== false){
+
+					var hrefDomain = elemt.getAttribute('data-href').replace('http://', '');
+					hrefDomain = hrefDomain.replace('https://', '');
+
+					var re = new RegExp('^\/', 'i'); 
+
+					if(re.test(hrefDomain) === true){
+						hrefDomain = domain+hrefDomain;
+					}
+
+					var urlIn = new RegExp('^'+domain, 'i');
+
+					if(urlIn.test(hrefDomain) === true){
+						Boss.pushstate.goXHR(elemt.getAttribute('data-href'), xhrfn, lockChangePageFn);
+					}else{
+						var a = document.createElement('a');
+						a.href = elemt.getAttribute('data-href');
+						Boss.trigger('click', a);
+					}
+				}else{
+
+					var wl = true;
+					while(wl === true){
+
+						if(elemt.parentNode !== null && elemt.nodeName !== 'A'){
+							elemt = elemt.parentNode;
+						}else{
+							wl = false;
+
+							if(elemt.href){
+
+								var hrefDomain = elemt.href.replace('http://', '');
+								hrefDomain = hrefDomain.replace('https://', '');
+
+								var urlIn = new RegExp('^'+domain, 'i');
+
+								if(urlIn.test(hrefDomain) === true && !elemt.getAttribute('data-href')){
+
+									/* GOXHR*/
+									if(expJs.test(elemt.href) === false || 
+										expFTP.test(elemt.href) === false || 
+										expMail.test(elemt.href) === false || 
+										expWhatsapp.test(elemt.href) === false || 
+										!elemt.getAttribute('data-href')){
+
+										if(evts.stopPropagation){
+											evts.stopPropagation();
+										}
+										if(evts.preventDefault){
+											evts.preventDefault();
+										}
+										Boss.pushstate.goXHR(elemt.href, xhrfn, lockChangePageFn);
+									}
+
+								}
+							}
+						}
+					}
+				}
+			});
+
+			/* beforeunload EVENT  */
+			Boss.evts.add('beforeunload', window, function(evts){
+				if(lockClosePage === true){
+
+					evts.cancelBubble = true;
+
+					evts.returnValue = lockExitMessage;
+
+					if(evts.stopPropagation){
+						evts.stopPropagation();
+					}
+
+					if(evts.preventDefault){
+						evts.preventDefault();
+					}
+
+					return lockExitMessage;
+				}
+			});
+		},
+		goXHR: function(controler, xhrfn, lockChangePageFn){
+
+			if(lockChangePage === true && lockChangePageFn){
+				lockChangePageFn(controler);
+				return false;
+			}
+
+			var host = window.location.protocol+'//'+window.location.host;
+			var ctrlpage = window.location.href.replace(host, '');
+			ctrlpage = ctrlpage.replace(/\?.*$/, '');
+			XHRPopStateScroll[ctrlpage] = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+
+			xhrfn(controler, function(){
+				history.pushState({}, '', controler);
+			});
+
+		}
+	}
+};
+
+
 window.animaBox = {
 	inner: null,
 	container: null,
@@ -80,8 +242,170 @@ window.animaBox = {
 			container.onmouseleave = animaBox.onMouseLeaveHandler;
 			container.onmouseenter = animaBox.onMouseEnterHandler;
 		}
-	}
+	},
+	xhrfn: function(controler, doneCallFn){
+
+		var expPopstate = /!popstate+$/g;
+		var expHash = /#[.*\S]+$/g;
+		var expHashExtract = /#([.*\S]+)$/i;
+		var atualLocation = XHRPopLastController.replace(expHash, '');
+
+		controler = controler.replace(expPopstate, '');
+		var testHash = controler;
+
+		// SCROLL TO HASH ELEMENT
+		if(expHashExtract.test(controler) === true){
+			var idByHash = controler.match(expHashExtract)[1];
+			if(Boss.getById(idByHash)){
+				var idByHashTop = Boss.positionAtTop(Boss.getById(idByHash));
+				window.scrollTo(0, idByHashTop);
+			}else{
+				window.scrollTo(0, XHRPopStateScroll[controler]);
+			}
+		}
+
+		controler = controler.replace(expHash, '');
+		controlador = controler;
+
+		var pushLoader = Boss.getById('push-loader');
+		pushLoader.style.width = '10%';
+		pushLoader.style.opacity = 1;
+
+		if(XHRPopState){
+			if(typeof(XHRPopState.abort) === 'function'){
+				if(getXHRPopStateShowStatus() === false){
+					console.warn('Cancelando request anterior.');
+				}
+				setXHRPopStateShowStatus(false);
+				XHRPopState.abort();
+			}
+		}
+		
+		setXHRPopStateShowStatus(false);
+
+		XHRPopState = Boss.ajax({
+			'url': controler,
+			'data': {'push': 'push'},
+			'dataType': 'json',
+			'done': function(rtn){
+
+				setXHRPopStateShowStatus(true);
+
+				doneCallFn();
+
+				pushLoader.style.width = '50%';
+
+				if(rtn.title){
+					document.title = rtn.title;
+				}
+
+				var render = Boss.getById('content');
+				render.innerHTML = '';
+				render.innerHTML = rtn.html;
+
+				if(typeof(ga) !== 'undefined'){
+					
+					if(controler === jsdominio){
+						ga('send', 'pageview', '/');
+					}else{
+						ga('send', 'pageview', controler.replace(jsdominio, ''));
+					}
+				}
+
+				Boss.delay(function(){
+
+					// SCROLL TO HASH ELEMENT
+					if(expHashExtract.test(testHash) === true){
+						var idByHash = testHash.match(expHashExtract)[1];
+						if(Boss.getById(idByHash)){
+							var idByHashTop = Boss.positionAtTop(Boss.getById(idByHash));
+							window.scrollTo(0, idByHashTop);
+						}else{
+							window.scrollTo(0, XHRPopStateScroll[testHash]);
+						}
+					}else{
+
+						controlerscroll = controler.replace(/\?.*$/, '');
+
+						if(XHRPopStateScroll[controlerscroll]){
+							window.scrollTo(0, XHRPopStateScroll[controlerscroll]);
+						}else if(XHRPopStateScroll['/'+controlerscroll]){
+							window.scrollTo(0, XHRPopStateScroll['/'+controlerscroll]);
+						}else{
+							window.scrollTo(0, 0);
+						}
+					}
+
+					var scripts = render.getElementsByTagName('script');
+					for(x in scripts){
+						eval(scripts[x].innerHTML);
+					}
+
+				}, 30);
+
+				/* CONTROLADOR INDEX */
+				if(controler === '/' || controler === jsdominio || controler === jsdominio+'/' || controler === jsdominio+'/mobile/'){
+
+					pushLoader.style.width = '100%';
+
+					Boss.delay(function(){
+						pushLoader.style.opacity = 0;
+					}, 500);
+
+					if(Boss.getById('header-index-pc') && Boss.getById('header-index-pc-arrow')){
+
+						Boss.getById('header-index-pc').classList.remove('hidden');
+						Boss.getById('header-index-pc-arrow').classList.remove('hidden');
+					}
+
+				/* OUTROS */
+				}else{
+
+					if(Boss.getById('header-index-pc') && Boss.getById('header-index-pc-arrow')){
+
+						Boss.getById('header-index-pc').classList.add('hidden');
+						Boss.getById('header-index-pc-arrow').classList.add('hidden');
+					}
+
+					Boss.delay(function(){
+
+						pushLoader.style.width = '100%';
+
+						Boss.delay(function(){
+							pushLoader.style.opacity = 0;
+						}, 500);
+
+						Boss.delay(function(){
+							pushLoader.style.width = '0%';
+						}, 1000);
+					}, 30);
+
+					var ctrl = controler
+					ctrl = ctrl.replace(jsdominio+'/mobile/', '');
+					ctrl = ctrl.replace(jsdominio+'/', '');
+
+					ctrl = ctrl.split('/');
+
+				}
+
+				closeMenu();
+			},
+			'error': function(evts){
+				if(getXHRPopStateShowStatus() === true){
+					Boss.warning({'message': 'Não foi possível acessar o conteúdo requisitado, há algum problema com a Internet!'});
+					Boss.delay(function(){
+						pushLoader.style.opacity = 0;
+					}, 500);
+
+					Boss.delay(function(){
+						pushLoader.style.width = '0%';
+					}, 1000);
+				}
+			}
+		});
+	};
 };
+
 
 
 
