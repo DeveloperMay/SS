@@ -265,72 +265,69 @@ window.push = {
 		
 		push.setXHRPopStateShowStatus(false);
 
-		XHRPopState = a.ajax({
-			'url': controler,
-			'data': {'push': 'push'},
-			'dataType': 'json',
-			'done': function(rtn){
+		XHRPopState = fetch(controler, {
+			method: 'POST',
+            mode: 'cors',
+			headers: {
+				'Content-Type':'application/x-www-form-urlencoded'
+			},
+			body: 'push=push'
+			}).then(resposta => {
 
-				/* ATUALIZA A VARIAVEL RESPOSTAAJAX */
-				push.respostaAjax = rtn;
+				resposta.json().then(json => {
 
-				push.setXHRPopStateShowStatus(true);
+					const metas = json.metas;
+					const html = json.html;
 
-				doneCallFn();
+					/* ATUALIZA A VARIAVEL RESPOSTAAJAX */
+					push.respostaAjax = json;
 
-				push.pushLoader.style.width = '50%';
+					push.setXHRPopStateShowStatus(true);
 
-				/* ATUALIZA O SEO DA PAGINA */
-				push.seo(rtn.metas);
+					doneCallFn();
 
-				push.render.innerHTML = '';
-				push.render.innerHTML = rtn.html;
+					push.pushLoader.style.width = '50%';
 
-				a.delay(function(){
+					/* ATUALIZA O SEO DA PAGINA */
+					push.seo(metas);
 
-					/* SCROLL TO HASH ELEMENT */
-					if(expHashExtract.test(testHash) === true){
-						var idByHash = testHash.match(expHashExtract)[1];
-						if(a.id(idByHash)){
-							var idByHashTop = a.positionAtTop(a.id(idByHash));
-							window.scrollTo(0, idByHashTop);
-						}else{
-							window.scrollTo(0, XHRPopStateScroll[testHash]);
-						}
-					}else{
-
-						controlerscroll = controler.replace(/\?.*$/, '');
-
-						if(XHRPopStateScroll[controlerscroll]){
-							window.scrollTo(0, XHRPopStateScroll[controlerscroll]);
-						}else if(XHRPopStateScroll['/'+controlerscroll]){
-							window.scrollTo(0, XHRPopStateScroll['/'+controlerscroll]);
-						}else{
-							window.scrollTo(0, 0);
-						}
-					}
-
-					/* ESTE TRECHO É IMPORTANTISSIMO PARA EXECUTAR O JS DAS VIEWS, SEM ISSO NÃO EXECUTA JS DAS VIEWS! */
-					var scripts = push.render.getElementsByTagName('script');
-					for(x in scripts){
-						eval(scripts[x].innerHTML);
-					}
-
-				}, 30);
-
-				/* CONTROLADOR INDEX */
-				if(push.controlador == "/"){
-
-					push.pushLoader.style.width = '100%';
+					push.render.innerHTML = '';
+					push.render.innerHTML = html;
 
 					a.delay(function(){
-						push.pushLoader.style.opacity = 0;
-					}, 500);
 
-				/* OUTROS */
-				}else{
+						/* SCROLL TO HASH ELEMENT */
+						if(expHashExtract.test(testHash) === true){
+							var idByHash = testHash.match(expHashExtract)[1];
+							if(a.id(idByHash)){
+								var idByHashTop = a.positionAtTop(a.id(idByHash));
+								window.scrollTo(0, idByHashTop);
+							}else{
+								window.scrollTo(0, XHRPopStateScroll[testHash]);
+							}
+						}else{
 
-					a.delay(function(){
+							controlerscroll = controler.replace(/\?.*$/, '');
+
+							if(XHRPopStateScroll[controlerscroll]){
+								window.scrollTo(0, XHRPopStateScroll[controlerscroll]);
+							}else if(XHRPopStateScroll['/'+controlerscroll]){
+								window.scrollTo(0, XHRPopStateScroll['/'+controlerscroll]);
+							}else{
+								window.scrollTo(0, 0);
+							}
+						}
+
+						/* ESTE TRECHO É IMPORTANTISSIMO PARA EXECUTAR O JS DAS VIEWS, SEM ISSO NÃO EXECUTA JS DAS VIEWS! */
+						var scripts = push.render.getElementsByTagName('script');
+						for(x in scripts){
+							eval(scripts[x].innerHTML);
+						}
+
+					}, 30);
+
+					/* CONTROLADOR INDEX */
+					if(push.controlador == "/"){
 
 						push.pushLoader.style.width = '100%';
 
@@ -338,25 +335,28 @@ window.push = {
 							push.pushLoader.style.opacity = 0;
 						}, 500);
 
-						a.delay(function(){
-							push.pushLoader.style.width = '0%';
-						}, 1000);
-					}, 30);
-				}
-			},
-			'error': function(evts){
-				if(push.getXHRPopStateShowStatus() === true){
-					a.warning({'message': 'Não foi possível acessar o conteúdo requisitado, há algum problema com a Internet!'});
-					a.delay(function(){
-						push.pushLoader.style.opacity = 0;
-					}, 500);
+					/* OUTROS */
+					}else{
 
-					a.delay(function(){
-						push.pushLoader.style.width = '0%';
-					}, 1000);
-				}
+						a.delay(function(){
+
+							push.pushLoader.style.width = '100%';
+
+							a.delay(function(){
+								push.pushLoader.style.opacity = 0;
+							}, 500);
+
+							a.delay(function(){
+								push.pushLoader.style.width = '0%';
+							}, 1000);
+						}, 30);
+					}
+				});
+
+			}).catch (error => {
+			  console.log(error)
 			}
-		});
+		);
 	}
 };
 push.history.init({

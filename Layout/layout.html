@@ -1,110 +1,28 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 	{{header}}
+	<script type="text/javascript" src="/js/a.min.js"></script>
 	<body>
-		<script>
-			/*window.ME = {
-				nome: '',
-				id: '',
-				perfil: '',
-			};
-			window.statusChangeCallback = function(response) {
-				if (response.status === 'connected') {
-					testAPI();
-				} else {
-					document.getElementById('status').innerHTML = 'Please log ' +
-						'into this app.';
-				}
-			};
-
-			window.checkLoginState = function() {
-				FB.getLoginStatus(function(response) {
-					statusChangeCallback(response);
-				});
-			};
-			
-			window.fbAsyncInit = function() {
-				FB.init({
-					appId: '2036746776607565',
-					cookie: true,
-					xfbml: true,
-					version: 'v2.8'
-				});
-
-				fbLoaded.resolve();
-				
-				FB.getLoginStatus(function(response) {
-					statusChangeCallback(response);
-				});
-
-			};
-
-			(function(d, s, id) {
-				var js, fjs = d.getElementsByTagName(s)[0];
-				if (d.getElementById(id)) return;
-				js = d.createElement(s); js.id = id;
-				js.src = "https://connect.facebook.net/en_US/sdk.js";
-				fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
-
-			function testAPI() {
-
-				FB.api('/me', function(response) {
-
-					/* USUÁRIO JÁ LOGADO VIA FACEBOOK */
-					/*if(window.location.pathname == '/login'){
-
-						Boss.pushstate.goXHR('/conta', xhrfn, lockChangePageFn);
-					}
-
-					/* RECUPERA A IMAGEM DE PERFIL */
-					/*FB.api(
-						'/'+response.id+'/picture?redirect=false&type=large',
-						'GET',
-						{},
-						function(res) {
-							ME.perfil = res.data.url;
-						}
-					);
-
-
-					ME.nome = response.name;
-					ME.id = response.id;
-				});
-				
-			}
-
-		window.Deferred = function(){
-			var self = this;
-		
-			this.promise = new Promise(function(resolve, reject){
-				self.reject = reject;
-				self.resolve = resolve;
-			});
-		};
-
-		window.fbLoaded = (new Deferred());
-*/
-		</script>
 		<div id="push-loader"></div>
 		{{menu}}
 		<nav class="nav">
 			<div class="max1280 d-block">
 				<div class="nav-logo">
 					<div class="box-img">
-						<img src="/img/logo/logo.png" alt="Imagem" />
+						<a href="/"><img src="/img/logo/logo.png" alt="Imagem" /></a>
 					</div>
 				</div>
 				<div class="nav-nav">
 
 
-					<a href="/abigor/termos">Termos</a>
-					<a href="/abigor/regras">Regras</a>
+					<div id="menu-login-on" class="hidden">
+						<a href="/conta">Perfil</a>
+						<a href="/login">Sair</a>
+					</div>
+					<div id="menu-login-off">
+						<a href="/login">Entrar</a>
+					</div>
 
-				<div class="block pd-center-10">
-					<a href="/abigor/privacidade">Privacidade</a>
-					<div><a href="/login">Login</a></div>
-					<div><a href="/conta">Conta</a></div>
 				</div>
 			</div>
 			
@@ -147,7 +65,6 @@
 		<div id="box-progress"></div>
 		<link rel="stylesheet" type="text/css" href="/css/icons/all.min.css{{cache}}">
 		<link rel="stylesheet" type="text/css" href="/css/site.min.css{{cache}}">
-		<script type="text/javascript" src="/js/a.min.js"></script>
 		<script type="text/javascript" src="/js/push.min.js"></script>
 	</body>
 </html>

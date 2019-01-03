@@ -31,6 +31,8 @@ class Conta {
 		$this->_url = $this->_cor->getUrl();
 
 		$this->_lang = $this->_cor->getLang();
+
+		header('Access-Control-Allow-Origin: *');
 	}
 
 	function index(){

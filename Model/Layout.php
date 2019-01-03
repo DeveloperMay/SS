@@ -99,7 +99,6 @@ class Model_Layout extends Model_View{
 <meta name="msapplication-tap-highlight" content="no"/>
 <meta name="apple-mobile-web-app-title" content="SS"/>
 <meta name="application-name" content="SS"/>
-<meta name="msapplication-TileImage" content="/img/site/caveira.png"/>
 <meta name="msapplication-TileColor" content="#e8e6e8"/>
 <meta name="theme-color" content="#1c5f8e"/>
 <meta name="author" content="Bames" />

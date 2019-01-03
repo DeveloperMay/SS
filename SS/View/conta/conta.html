@@ -17,27 +17,32 @@
 	
 	</div>
 </div>
-
 <script>
-	/*if(ME.perfil !== ''){
-		document.getElementById('img-perfil').src = ME.perfil;
-	}
+async function getUserAsync(name){
 
-	if(ME.nome !== ''){
-		
-		document.getElementById('user-nome').innerHTML = ME.nome;
-	}
+	var myHeaders = new Headers({
+		'Accept': 'application/json',
+      	'Content-Type': 'application/json'
+	});
 
+	var myInit = {
+        headers: myHeaders,
+        mode: 'no-cors'
+	};
 	
- 	document.addEventListener("DOMContentLoaded", function(event) {
+	let response = fetch(`https://api.tibiadata.com/v2/characters/${name}.json`, myInit)
+	.then(resposta => {
 
-	   if(ME.perfil !== ''){
-			document.getElementById('img-perfil').src = ME.perfil;
+		resposta.json().then(json => {
+			return json;
+		});
+
+	}).catch (error => {
+			console.log(error)
 		}
+	);
+}
 
-		if(ME.nome !== ''){
-
-			document.getElementById('user-nome').innerHTML = ME.nome;
-		}
-	});*/
+getUserAsync('JoeZito')
+.then(data => console.log(data));
 </script>
