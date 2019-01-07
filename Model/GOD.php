@@ -9,8 +9,6 @@
 }
 */
 
-require_once 'Functions/Permicoes.php';
-
 class Model_God extends Model_Layout{
 
 

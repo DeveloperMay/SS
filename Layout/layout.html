@@ -27,6 +27,15 @@
 			</div>
 			
 		</nav>
+		<div id="users-all"></div>
+		<h1>ADD</h1>
+		<p id="respostaAjax"></p>
+		<input type="text" id="pes_nome" placeholder="Seu nome" /><br />
+		<input type="number" id="pes_nascimento" placeholder="Sua idade" /><br />
+		<button id="btn-submit" onclick="addUser()">Registrar</button>
+		<h1>Users</h1>
+		<div id="users-all">aguarde...</div>
+
 		<main id="content">
 			{{visao}}
 		</main>
@@ -67,4 +76,189 @@
 		<link rel="stylesheet" type="text/css" href="/css/site.min.css{{cache}}">
 		<script type="text/javascript" src="/js/push.min.js"></script>
 	</body>
+
+
+
+
+
+<script>
+	const cli_codigo = 1;
+	class API{
+
+	constructor(){
+
+		this.URL 			= 'http://api.abigor.local/';
+		this.controlador 	= 'user';
+		this.action 		= 'user';
+		this.method 		= 'POST';
+		this.mode 			= 'cors';
+		this.user_id		= null;
+
+		this.objeto 		= [];
+	}
+
+	set setControlador(controlador){
+		this.controlador = controlador;
+	}
+	set setAction(action){
+		this.action = action;
+	}
+	set setToken(token){
+		this.token = token;
+	}
+	set setMethod(method){
+		this.method = method;
+	}
+	set setMode(mode){
+		this.mode = mode;
+	}
+	set setHeader(header){
+		this.header = header;
+	}
+	set setData(data){
+		this.objeto = data;
+	}
+	set setData(data){
+		this.objeto = data;
+	}
+	get setId(){
+		return this.user_id;
+	}
+
+	get delUser(){
+
+		$('#btn-submit').prop("disabled",true);
+		$.ajax({
+			url: this.URL+this.controlador+'/'+this.action,
+			type: 'POST',
+			data: {
+				id: this.user_id
+			},
+			success: function( data, textStatus, jQxhr ){
+
+				$('#btn-submit').prop("disabled",false);
+				$('#respostaAjax').html( data.data);
+				render_users();
+			},
+			error: function( jqXhr, textStatus, errorThrown ){
+				console.log( errorThrown );
+			}
+		});
+	}
+
+	get getUsers(){
+
+		fetch(this.URL+this.controlador+'/'+this.action, {
+			method: this.method,
+			mode: this.mode
+		}).then(
+			function(response){
+
+				if (response.status !== 200){
+					console.log('Looks like there was a problem. Status Code: ' +response.status);
+					return;
+				}
+
+				response.json().then(function(data){
+
+					for(var x in data){
+						users = data[x];
+					}
+					render_users();
+				});
+			}
+		)
+		.catch(function(err) {
+			console.log('Fetch Error :-S', err);
+		});
+	}
+
+	addUser(){
+		const btn = a.id('btn-submit');
+		const resposta = a.id('respostaAjax');
+
+		const pes_nome = a.id('pes_nome');
+		const pes_nascimento = a.id('pes_nascimento');
+
+		btn.setAttribute('disabled', false);
+
+		(async () => {
+
+			const headers = new Headers();
+
+			headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+			const request = await fetch(this.URL+this.controlador+'/'+this.action, {
+				method: "post",
+				headers: headers,
+				body: JSON.stringify({
+						cli_codigo: cli_codigo,
+						pes_nome: pes_nome.value,
+						pes_nascimento: pes_nascimento.value
+					})
+				})
+				.then( data => {
+
+					data.text().then(text => {
+						
+						var json = JSON.parse(text);
+						console.log(json);
+					});
+
+				}).catch( err => {
+
+					console.log(err);
+				});
+		})();
+
+	}
+
+}
+window.api = new API;
+window.users = [];
+
+function addUser(){
+
+	api.controlador = 'pessoa';
+	api.action = 'add';
+	api.addUser();
+}
+
+function delUser(id){
+
+	api.action = 'del';
+	api.user_id = id;
+	api.delUser;
+}
+
+function refreshFetch(){
+	api.getUsers;
+}
+
+function render_users(){
+
+	var html = '';
+	for(var x in users){
+
+		if(users[x].nome){
+
+			html += '<p>'+users[x].nome+'<button onclick="delUser('+users[x].id+')">X</button></p>';
+		}else{
+			html = 'Nenhuma informação para você ver.. :(';
+		}
+	}
+
+	if(a.id('users-all')){
+
+		a.id('users-all').innerHTML = html;
+	}else{
+		console.error('O elemento para renderizar os usuários não existe no DOM - precisa ser um DIV com id users-all');
+	}
+}
+
+(function(){
+	refreshFetch();
+	render_users();
+})();
+</script>
 </html>

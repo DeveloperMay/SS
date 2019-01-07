@@ -15,6 +15,35 @@ class Model_Pluggs_Validacao{
 
 	}
 
+	function loginEntrar($id, $senha){
+
+		/* Valida LOGIN */
+
+		$error = 0;
+		$mensagem = '';
+
+		if($id === ''){
+			$error = 1;
+			$mensagem = 'Informe o seu ID';
+
+		}
+
+		if($senha === ''){
+			$error = 1;
+			$mensagem = 'Informe sua senha';
+
+		}
+
+		/* SE HOUVER ERRO, EXIBIR */
+		if($error > 0){
+
+			return $mensagem;
+		}
+
+		return true;
+
+	}
+
 	function _criarLogin($dados){
 
 		$error 		= 0;

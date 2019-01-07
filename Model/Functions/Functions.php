@@ -7,7 +7,7 @@
 	"VERSION":"0.0.1"
 */
 
-class Model_Functions_Functions extends Model_Functions_Permicoes {
+class Model_Functions_Functions {
 
 	/* GERA TOKEN DE SEGURAÇA NOS FORMULÁRIO */
 	function _TokenForm($formulario){

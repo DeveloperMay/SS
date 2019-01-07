@@ -11,28 +11,7 @@
 
 
 
-$local = 'objetiva';
-define('BANCO_DADOS', 'psql');
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* LOCAL */
-$LOCAL = '/';
-if($local == 'casa'){
-	$LOCAL = '/SS/';
-}
-
-define('LOCAL', $local);
+define('BANCO_DADOS', 'pgsql');
 
 /* DEBUG DESENVOLVIMENTO */
 /**
@@ -44,11 +23,11 @@ define('DEV', true);
 /**
 ** CONFIGURAÇÕES DO MVC
 **/
-define('DIR', '..'.$LOCAL);
+define('DIR', '../');
 
 define('SUBDOMINIO', 'SS');
 
-define('SAVE_SESSIONS', 'Sessions');
+define('SAVE_SESSIONS', '/Sessions');
 
 define('DIR_CLASS', '');
 
